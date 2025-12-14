@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Innovate Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            padding-top: 100px;
+        }
+        
+        .admin-header {
+            margin-bottom: 2rem;
+        }
+        
+        .admin-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .section-card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .messages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message-item {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .message-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .message-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .message-meta {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .message-content {
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+        
+        .message-location {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .visitors-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .visitor-item {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .visitor-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .visitor-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0.25rem 0;
+        }
+        
+        .refresh-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .refresh-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+        
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>Innovate Studio - Admin</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Back to Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">Admin Dashboard</h1>
+            <button class="refresh-btn" onclick="refreshData()">Refresh Data</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Current Visitors</h3>
+                <div class="stat-value" id="currentVisitors">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Messages</h3>
+                <div class="stat-value" id="totalMessages">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Visitors</h3>
+                <div class="stat-value" id="totalVisitors">0</div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Recent Messages</h2>
+            <div class="messages-list" id="messagesList">
+                <!-- Messages will be loaded here -->
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Recent Visitors</h2>
+            <div class="visitors-list" id="visitorsList">
+                <!-- Visitors will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadData() {
+            // Load messages
+            const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+            document.getElementById('totalMessages').textContent = messages.length;
+            
+            // Load visitors
+            const visitors = JSON.parse(localStorage.getItem('portfolioVisitors') || '[]');
+            document.getElementById('totalVisitors').textContent = visitors.length;
+            
+            // Current visitors (active sessions)
+            const currentCount = parseInt(localStorage.getItem('currentVisitorCount') || '0');
+            document.getElementById('currentVisitors').textContent = currentCount;
+            
+            // Display messages
+            const messagesList = document.getElementById('messagesList');
+            if (messages.length === 0) {
+                messagesList.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <p>No messages yet</p>
+                    </div>
+                `;
+            } else {
+                messagesList.innerHTML = messages
+                    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+                    .slice(0, 20)
+                    .map(msg => `
+                        <div class="message-item">
+                            <div class="message-header">
+                                <div class="message-info">
+                                    <h4>${escapeHtml(msg.name)}</h4>
+                                    <p>${escapeHtml(msg.email)}</p>
+                                </div>
+                                <div class="message-meta">
+                                    <p>${formatDate(msg.timestamp)}</p>
+                                    <p>ID: ${msg.visitorId}</p>
+                                </div>
+                            </div>
+                            <div class="message-content">${escapeHtml(msg.message)}</div>
+                            <div class="message-location">
+                                <span>📍 ${msg.location?.country || 'Unknown'}, ${msg.location?.city || 'Unknown'}</span>
+                                <span>🌐 IP: ${msg.location?.ip || 'Unknown'}</span>
+                            </div>
+                        </div>
+                    `).join('');
+            }
+            
+            // Display visitors
+            const visitorsList = document.getElementById('visitorsList');
+            if (visitors.length === 0) {
+                visitorsList.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <p>No visitors tracked yet</p>
+                    </div>
+                `;
+            } else {
+                visitorsList.innerHTML = visitors
+                    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+                    .slice(0, 30)
+                    .map(visitor => `
+                        <div class="visitor-item">
+                            <h4>Visitor ${visitor.id.substring(0, 15)}...</h4>
+                            <p>🕐 ${formatDate(visitor.timestamp)}</p>
+                            <p>📍 ${visitor.location?.country || 'Unknown'}, ${visitor.location?.city || 'Unknown'}</p>
+                            <p>🌐 IP: ${visitor.location?.ip || 'Unknown'}</p>
+                            <p>📄 ${visitor.page || '/'}</p>
+                        </div>
+                    `).join('');
+            }
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+        
+        function refreshData() {
+            loadData();
+        }
+        
+        // Load data on page load
+        loadData();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(refreshData, 30000);
+    </script>
+</body>
+</html>
+
+

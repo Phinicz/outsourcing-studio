@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ultra-fast modern portfolio website" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Innovate Studio - Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <svg
+            class="logo-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <span>Innovate Studio</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+      </div>
+      <div class="container hero-content">
+        <h1 class="hero-title">
+          <span class="title-line">We Create</span>
+          <span class="title-line highlight">Digital Excellence</span>
+        </h1>
+        <p class="hero-subtitle">
+          Transforming ideas into stunning digital experiences that drive
+          results
+        </p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+          <!-- I want the free label to be on top right of the button -->
+          <a href="#contact" class="btn btn-secondary btn-free">
+            Get In Touch
+            <span class="free-badge">FREE CONSULTATION</span>
+          </a>
+        </div>
+        <div class="hero-trusted-by">
+          <p class="trusted-by-label">Trusted By</p>
+          <div class="hero-logos-container">
+            <div class="hero-logos-track">
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/Al_Ghurair_logo.svg" width="100" />
+                </div>
+              </div>
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/Hatchyverse.webp" width="150" />
+                </div>
+              </div>
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/zedtaxi.jpg" width="80" />
+                </div>
+              </div>
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/anons.webp" width="100" />
+                </div>
+              </div>
+              <!-- Duplicate for seamless loop -->
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/Al_Ghurair_logo.svg" width="100" />
+                </div>
+              </div>
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/Hatchyverse.webp" width="150" />
+                </div>
+              </div>
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/zedtaxi.jpg" width="80" />
+                </div>
+              </div>
+              <div class="hero-logo-item">
+                <div class="hero-logo-placeholder">
+                  <img src="public/anons.webp" width="100" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Portfolio</h2>
+          <p class="section-subtitle">
+            Showcasing our best work and creative solutions
+          </p>
+        </div>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="games">Games</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Portfolio Item 1 - Arcania -->
+          <div class="portfolio-item" data-category="games">
+            <div class="portfolio-card">
+              <div class="portfolio-media">
+                <iframe
+                  class="portfolio-video"
+                  src="https://www.youtube-nocookie.com/embed/zUjvpoeulSs?autoplay=1&loop=1&playlist=zUjvpoeulSs&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  data-video-id="zUjvpoeulSs"
+                ></iframe>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Game Development</span>
+                <h3 class="portfolio-title">Arcania</h3>
+                <p class="portfolio-description">
+                  Epic 5v5 MOBA where you connect with friends, team up, and battle for supremacy
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 2 - Crypto Blasters -->
+          <div class="portfolio-item" data-category="games">
+            <div class="portfolio-card">
+              <div class="portfolio-media">
+                <iframe
+                  class="portfolio-video"
+                  src="https://www.youtube-nocookie.com/embed/5Is173XQeyg?autoplay=1&loop=1&playlist=5Is173XQeyg&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  data-video-id="5Is173XQeyg"
+                ></iframe>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Game Development</span>
+                <h3 class="portfolio-title">Crypto Blasters</h3>
+                <p class="portfolio-description">
+                  Experience incredible drone flying mechanics in this action-packed aerial combat game
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 3 - Metaforza -->
+          <div class="portfolio-item" data-category="games">
+            <div class="portfolio-card">
+              <div class="portfolio-media">
+                <iframe
+                  class="portfolio-video"
+                  src="https://www.youtube-nocookie.com/embed/FiEdMhpgbAI?autoplay=1&loop=1&playlist=FiEdMhpgbAI&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  data-video-id="FiEdMhpgbAI"
+                ></iframe>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Game Development</span>
+                <h3 class="portfolio-title">Metaforza</h3>
+                <p class="portfolio-description">
+                  High-octane racing game with stunning graphics and heart-pounding speed
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 4 - Rampage -->
+          <div class="portfolio-item" data-category="games">
+            <div class="portfolio-card">
+              <div class="portfolio-media">
+                <iframe
+                  class="portfolio-video"
+                  src="https://www.youtube-nocookie.com/embed/KBXnfm4q1NU?autoplay=1&loop=1&playlist=KBXnfm4q1NU&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  data-video-id="KBXnfm4q1NU"
+                ></iframe>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-category">Game Development</span>
+                <h3 class="portfolio-title">Rampage</h3>
+                <p class="portfolio-description">
+                  Addictive rogue-like bullet heaven game with endless waves of chaos and upgrades
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Team</h2>
+          <p class="section-subtitle">
+            Meet the creative minds behind our success
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-card">
+              <div class="member-avatar">
+                <div class="avatar-placeholder">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="member-overlay">
+                  <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                        />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                      </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Sarah Johnson</h3>
+                <p class="member-role">Creative Director</p>
+                <p class="member-bio">
+                  Visionary leader with 10+ years of experience in digital
+                  design
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-card">
+              <div class="member-avatar">
+                <div class="avatar-placeholder">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="member-overlay">
+                  <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                        />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                      </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Michael Chen</h3>
+                <p class="member-role">Lead Developer</p>
+                <p class="member-bio">
+                  Full-stack expert passionate about performance and clean code
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-card">
+              <div class="member-avatar">
+                <div class="avatar-placeholder">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="member-overlay">
+                  <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                        />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                      </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Emily Rodriguez</h3>
+                <p class="member-role">UX Designer</p>
+                <p class="member-bio">
+                  User experience specialist focused on intuitive interfaces
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="member-card">
+              <div class="member-avatar">
+                <div class="avatar-placeholder">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="member-overlay">
+                  <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                        />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                      </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">David Park</h3>
+                <p class="member-role">Marketing Lead</p>
+                <p class="member-bio">
+                  Growth strategist driving brand awareness and engagement
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Free Quotation</h2>
+          <p class="section-subtitle">
+            Book a free meeting to discuss your ideas, brainstorm solutions, and
+            receive a detailed pricing quote for your project development. Let's
+            bring your vision to life together.
+          </p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <img src="public/wa.svg" alt="WhatsApp" class="wa-contact-icon" />
+              <div>
+                <h4>WhatsApp</h4>
+                <p>
+                  <a
+                    href="https://wa.me/201553163557"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: var(--primary); text-decoration: none"
+                    >+20 1553163557</a
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              <div>
+                <h4>Phone</h4>
+                <p>+20 1553163557</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <div>
+                <h4>Email</h4>
+                <p>mohmedfakhryahmed@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input
+                type="text"
+                name="name"
+                id="contactName"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                id="contactEmail"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                name="message"
+                id="contactMessage"
+                placeholder="Your Message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+              <a
+                href="#"
+                id="googleMeetingBtn"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-google-meeting"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  width="20"
+                  height="20"
+                >
+                  <path
+                    d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"
+                  />
+                </svg>
+                Book Free Meeting
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Client Testimonials</h2>
+          <p class="section-subtitle">
+            What our clients say about working with us
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg
+                class="quote-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
+                />
+                <path
+                  d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                />
+              </svg>
+              <p class="testimonial-text">
+                "Working with Innovate Studio was an absolute pleasure. They
+                transformed our vision into a stunning digital experience that
+                exceeded all our expectations. The attention to detail and
+                creative solutions were outstanding."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">John Smith</h4>
+                <p class="testimonial-company">CEO, TechCorp</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg
+                class="quote-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
+                />
+                <path
+                  d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                />
+              </svg>
+              <p class="testimonial-text">
+                "The team's expertise and professionalism made our project
+                seamless. They delivered on time and within budget, and the
+                final product was exactly what we needed. Highly recommend!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Sarah Williams</h4>
+                <p class="testimonial-company">Founder, StartupHub</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <svg
+                class="quote-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
+                />
+                <path
+                  d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                />
+              </svg>
+              <p class="testimonial-text">
+                "Innovate Studio brought our brand to life with creativity and
+                innovation. Their strategic approach and design expertise helped
+                us stand out in a crowded market. Truly exceptional work!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Michael Chen</h4>
+                <p class="testimonial-company">CMO, BrandWorks</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <svg
+              class="logo-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+            <span>Innovate Studio</span>
+          </div>
+          <p class="footer-text">
+            &copy; 2024 Innovate Studio. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="video-modal" id="videoModal">
+      <div class="video-modal-content">
+        <button class="video-modal-close" id="closeModal" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        
+        <!-- Video Section -->
+        <div class="modal-video-container">
+          <div class="video-container">
+            <iframe
+              id="modalVideo"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        </div>
+        
+        <div class="modal-content-body">
+          <!-- Project Title -->
+          <div class="modal-header-section">
+            <span class="modal-project-category" id="modalCategory"></span>
+            <h2 class="modal-project-title" id="modalTitle"></h2>
+          </div>
+          
+          <!-- Client Testimonial -->
+          <div class="modal-testimonial-section" id="testimonialSection">
+            <div class="testimonial-quote">"</div>
+            <p class="modal-testimonial-text" id="modalTestimonial"></p>
+            <div class="testimonial-author" id="modalClientInfo">
+              <!-- Client info will be added here dynamically -->
+            </div>
+          </div>
+          
+          <!-- Project Description -->
+          <div class="modal-description-section">
+            <h3 class="section-heading">About This Project</h3>
+            <p class="modal-project-description" id="modalDescription"></p>
+          </div>
+          
+          <!-- Technologies Used -->
+          <div class="technologies-section">
+            <h3 class="section-heading">Technologies Used</h3>
+            <div class="technologies-list" id="projectTechnologies">
+              <!-- Technologies will be added here dynamically -->
+            </div>
+          </div>
+          
+          <!-- Project Details with Images -->
+          <div class="modal-details-section" id="modalDetailsSection">
+            <!-- Images and text will be dynamically added here -->
+          </div>
+          
+          <!-- View Project Button -->
+          <div class="modal-footer-section">
+            <a href="#" id="projectLink" class="project-link-btn" target="_blank" rel="noopener noreferrer">
+              <span>View Live Project</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
