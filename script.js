@@ -462,15 +462,72 @@ const fixHomepageYouTubeEmbeds = () => {
  });
 };
 
+// Testimonial Slider Auto-Swipe
+let currentTestimonialSlide = 0;
+let testimonialAutoSwipe;
+
+const initTestimonialSlider = () => {
+  const track = document.querySelector('.testimonial-track');
+  const dots = document.querySelectorAll('.pagination-dot');
+  const totalSlides = document.querySelectorAll('.testimonial-slide').length;
+
+  if (!track || !dots.length) return;
+
+  const updateSlider = (slideIndex) => {
+    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+    
+    // Update active dot
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === slideIndex);
+    });
+    
+    currentTestimonialSlide = slideIndex;
+  };
+
+  const nextSlide = () => {
+    const nextIndex = (currentTestimonialSlide + 1) % totalSlides;
+    updateSlider(nextIndex);
+  };
+
+  const startAutoSwipe = () => {
+    testimonialAutoSwipe = setInterval(nextSlide, 4000); // Auto-swipe every 4 seconds
+  };
+
+  const stopAutoSwipe = () => {
+    clearInterval(testimonialAutoSwipe);
+  };
+
+  // Dot click handlers
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      updateSlider(index);
+      stopAutoSwipe();
+      setTimeout(startAutoSwipe, 1000); // Restart auto-swipe after 1 second
+    });
+  });
+
+  // Pause on hover
+  const sliderContainer = document.querySelector('.testimonial-slider');
+  if (sliderContainer) {
+    sliderContainer.addEventListener('mouseenter', stopAutoSwipe);
+    sliderContainer.addEventListener('mouseleave', startAutoSwipe);
+  }
+
+  // Start auto-swipe
+  startAutoSwipe();
+};
+
 // Initialize video modal when DOM is ready
 if (document.readyState === 'loading') {
  document.addEventListener('DOMContentLoaded', () => {
    fixHomepageYouTubeEmbeds();
    initVideoModal();
+   initTestimonialSlider();
  });
 } else {
  fixHomepageYouTubeEmbeds();
  initVideoModal();
+ initTestimonialSlider();
 }
 
 // Generate Google Calendar Meeting Link
