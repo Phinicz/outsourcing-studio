@@ -1,34 +1,141 @@
-// Mobile Navigation Toggle
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector(".nav-menu");
+// Language Management
+let currentLang = localStorage.getItem('language') || 'en';
 
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  navToggle.classList.toggle("active");
-});
+// Set initial language on HTML element (can be done immediately)
+document.documentElement.lang = currentLang;
+document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll(".nav-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-    navToggle.classList.remove("active");
-  });
-});
+// Helper function to get nested translation
+function getNestedTranslation(obj, path) {
+  try {
+    return path.split('.').reduce((current, key) => {
+      // Handle array index notation like "items.0.name"
+      if (!isNaN(key)) {
+        return current ? current[parseInt(key)] : undefined;
+      }
+      return current ? current[key] : undefined;
+    }, obj);
+  } catch (error) {
+    console.error('Error getting translation for path:', path, error);
+    return undefined;
+  }
+}
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      const offsetTop = target.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
+// Apply translations
+function applyTranslations() {
+  // Check if translations object exists
+  if (typeof translations === 'undefined') {
+    console.error('Translations object not found! Make sure translations.js is loaded before script.js');
+    return;
+  }
+  
+  const lang = currentLang;
+  console.log('Applying translations for language:', lang);
+  
+  // Update all elements with data-translate attribute
+  let translatedCount = 0;
+  document.querySelectorAll('[data-translate]').forEach(element => {
+    const key = element.getAttribute('data-translate');
+    const translation = getNestedTranslation(translations[lang], key);
+    if (translation) {
+      element.textContent = translation;
+      translatedCount++;
+    } else {
+      console.warn('Translation not found for key:', key);
     }
   });
-});
+  console.log('Translated', translatedCount, 'text elements');
+  
+  // Update all placeholders with data-translate-placeholder attribute
+  let placeholderCount = 0;
+  document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-translate-placeholder');
+    const translation = getNestedTranslation(translations[lang], key);
+    if (translation) {
+      element.placeholder = translation;
+      placeholderCount++;
+    } else {
+      console.warn('Translation not found for placeholder key:', key);
+    }
+  });
+  console.log('Translated', placeholderCount, 'placeholder elements');
+  
+  // Update language toggle button text
+  const langToggle = document.getElementById('langToggle');
+  if (langToggle) {
+    const langText = langToggle.querySelector('.lang-text');
+    if (langText) {
+      langText.textContent = lang === 'en' ? 'عربي' : 'English';
+      console.log('Language toggle button updated');
+    }
+  } else {
+    console.warn('Language toggle button not found');
+  }
+  
+  // Update body font family for Arabic
+  if (lang === 'ar') {
+    document.body.style.fontFamily = "'Cairo', 'Inter', sans-serif";
+  } else {
+    document.body.style.fontFamily = "'Inter', sans-serif";
+  }
+  
+  console.log('Translation complete!');
+}
+
+// Toggle language
+function toggleLanguage() {
+  console.log('Toggling language from', currentLang);
+  currentLang = currentLang === 'en' ? 'ar' : 'en';
+  localStorage.setItem('language', currentLang);
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  applyTranslations();
+  
+  // Reinitialize testimonial slider to update direction
+  initTestimonialSlider();
+  
+  console.log('Language toggled to', currentLang);
+}
+
+// Initialize navigation and other DOM-dependent code
+function initNavigation() {
+  // Mobile Navigation Toggle
+  const navToggle = document.querySelector(".nav-toggle");
+  const navMenu = document.querySelector(".nav-menu");
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      navToggle.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll(".nav-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("active");
+      });
+    });
+  }
+}
+
+// Initialize smooth scroll
+function initSmoothScroll() {
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        const offsetTop = target.offsetTop - 80;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+}
 
 // Navbar scroll effect
 let lastScroll = 0;
@@ -474,7 +581,15 @@ const initTestimonialSlider = () => {
   if (!track || !dots.length) return;
 
   const updateSlider = (slideIndex) => {
-    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+    // Check if RTL
+    const isRTL = document.documentElement.dir === 'rtl';
+    
+    // Use positive translateX for RTL, negative for LTR
+    if (isRTL) {
+      track.style.transform = `translateX(${slideIndex * 100}%)`;
+    } else {
+      track.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
     
     // Update active dot
     dots.forEach((dot, index) => {
@@ -515,19 +630,53 @@ const initTestimonialSlider = () => {
 
   // Start auto-swipe
   startAutoSwipe();
+  
+  // Initial update to set correct position
+  updateSlider(0);
 };
 
-// Initialize video modal when DOM is ready
+// Initialize everything when DOM is ready
+function initAll() {
+  console.log('=== Initializing website ===');
+  console.log('Document ready state:', document.readyState);
+  
+  // Initialize translations
+  console.log('1. Initializing translations...');
+  applyTranslations();
+  
+  // Initialize language toggle
+  console.log('2. Setting up language toggle...');
+  const langToggle = document.getElementById('langToggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', toggleLanguage);
+    console.log('✓ Language toggle button found and connected');
+  } else {
+    console.error('✗ Language toggle button NOT found!');
+  }
+  
+  // Initialize navigation
+  console.log('3. Initializing navigation...');
+  initNavigation();
+  
+  // Initialize smooth scroll
+  console.log('4. Initializing smooth scroll...');
+  initSmoothScroll();
+  
+  // Initialize video features
+  console.log('5. Initializing video features...');
+  fixHomepageYouTubeEmbeds();
+  initVideoModal();
+  initTestimonialSlider();
+  
+  console.log('=== Initialization complete ===');
+}
+
+// Initialize when DOM is ready
+console.log('Script loaded, waiting for DOM...');
 if (document.readyState === 'loading') {
- document.addEventListener('DOMContentLoaded', () => {
-   fixHomepageYouTubeEmbeds();
-   initVideoModal();
-   initTestimonialSlider();
- });
+  document.addEventListener('DOMContentLoaded', initAll);
 } else {
- fixHomepageYouTubeEmbeds();
- initVideoModal();
- initTestimonialSlider();
+  initAll();
 }
 
 // Generate Google Calendar Meeting Link

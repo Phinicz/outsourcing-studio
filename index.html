@@ -13,6 +13,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="translations.js"></script>
   </head>
   <body>
     <!-- Navigation -->
@@ -28,14 +33,17 @@
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
           </svg>
-          <span>Innovate Studio</span>
+          <span data-translate="hero.brand">Innovate Studio</span>
         </div>
         <ul class="nav-menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" data-translate="nav.home">Home</a></li>
+          <li><a href="#portfolio" data-translate="nav.portfolio">Portfolio</a></li>
+          <li><a href="#team" data-translate="nav.team">Team</a></li>
+          <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
         </ul>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+          <span class="lang-text">عربي</span>
+        </button>
         <button class="nav-toggle" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -53,23 +61,23 @@
       </div>
       <div class="container hero-content">
         <h1 class="hero-title">
-          <span class="title-line">We Create</span>
-          <span class="title-line highlight">Digital Excellence</span>
+          <span class="title-line" data-translate="hero.titleLine1">We Create</span>
+          <span class="title-line highlight" data-translate="hero.titleLine2">Digital Excellence</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-translate="hero.subtitle">
           Transforming ideas into stunning digital experiences that drive
           results
         </p>
         <div class="hero-buttons">
-          <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+          <a href="#portfolio" class="btn btn-primary" data-translate="hero.viewWork">View Our Work</a>
           <!-- I want the free label to be on top right of the button -->
           <a href="#contact" class="btn btn-secondary btn-free">
-            Get In Touch
-            <span class="free-badge">FREE CONSULTATION</span>
+            <span data-translate="hero.getInTouch">Get In Touch</span>
+            <span class="free-badge" data-translate="hero.freeBadge">FREE CONSULTATION</span>
           </a>
         </div>
         <div class="hero-trusted-by">
-          <p class="trusted-by-label">Trusted By</p>
+          <p class="trusted-by-label" data-translate="hero.trustedBy">Trusted By</p>
           <div class="hero-logos-container">
             <div class="hero-logos-track">
               <div class="hero-logo-item">
@@ -126,17 +134,17 @@
     <section id="portfolio" class="portfolio">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Our Portfolio</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" data-translate="portfolio.title">Our Portfolio</h2>
+          <p class="section-subtitle" data-translate="portfolio.subtitle">
             Showcasing our best work and creative solutions
           </p>
         </div>
 
         <div class="portfolio-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="games">Games</button>
-          <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="branding">Branding</button>
+          <button class="filter-btn active" data-filter="all" data-translate="portfolio.filterAll">All</button>
+          <button class="filter-btn" data-filter="games" data-translate="portfolio.filterGames">Games</button>
+          <button class="filter-btn" data-filter="web" data-translate="portfolio.filterWeb">Web</button>
+          <button class="filter-btn" data-filter="branding" data-translate="portfolio.filterBranding">Branding</button>
         </div>
 
         <div class="portfolio-grid">
@@ -155,9 +163,9 @@
                 ></iframe>
               </div>
               <div class="portfolio-info">
-                <span class="portfolio-category">Game Development</span>
-                <h3 class="portfolio-title">Arcania</h3>
-                <p class="portfolio-description">
+                <span class="portfolio-category" data-translate="portfolio.categories.gameDevelopment">Game Development</span>
+                <h3 class="portfolio-title" data-translate="portfolio.projects.arcania.title">Arcania</h3>
+                <p class="portfolio-description" data-translate="portfolio.projects.arcania.description">
                   Epic 5v5 MOBA where you connect with friends, team up, and battle for supremacy
                 </p>
               </div>
@@ -179,9 +187,9 @@
                 ></iframe>
               </div>
               <div class="portfolio-info">
-                <span class="portfolio-category">Game Development</span>
-                <h3 class="portfolio-title">Crypto Blasters</h3>
-                <p class="portfolio-description">
+                <span class="portfolio-category" data-translate="portfolio.categories.gameDevelopment">Game Development</span>
+                <h3 class="portfolio-title" data-translate="portfolio.projects.cryptoBlasters.title">Crypto Blasters</h3>
+                <p class="portfolio-description" data-translate="portfolio.projects.cryptoBlasters.description">
                   Experience incredible drone flying mechanics in this action-packed aerial combat game
                 </p>
               </div>
@@ -203,9 +211,9 @@
                 ></iframe>
               </div>
               <div class="portfolio-info">
-                <span class="portfolio-category">Game Development</span>
-                <h3 class="portfolio-title">Metaforza</h3>
-                <p class="portfolio-description">
+                <span class="portfolio-category" data-translate="portfolio.categories.gameDevelopment">Game Development</span>
+                <h3 class="portfolio-title" data-translate="portfolio.projects.metaforza.title">Metaforza</h3>
+                <p class="portfolio-description" data-translate="portfolio.projects.metaforza.description">
                   High-octane racing game with stunning graphics and heart-pounding speed
                 </p>
               </div>
@@ -227,9 +235,9 @@
                 ></iframe>
               </div>
               <div class="portfolio-info">
-                <span class="portfolio-category">Game Development</span>
-                <h3 class="portfolio-title">Rampage</h3>
-                <p class="portfolio-description">
+                <span class="portfolio-category" data-translate="portfolio.categories.gameDevelopment">Game Development</span>
+                <h3 class="portfolio-title" data-translate="portfolio.projects.rampage.title">Rampage</h3>
+                <p class="portfolio-description" data-translate="portfolio.projects.rampage.description">
                   Addictive rogue-like bullet heaven game with endless waves of chaos and upgrades
                 </p>
               </div>
@@ -243,8 +251,8 @@
     <section id="testimonials" class="testimonials">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Client Testimonials</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" data-translate="testimonials.title">Client Testimonials</h2>
+          <p class="section-subtitle" data-translate="testimonials.subtitle">
             What our clients say about working with us
           </p>
         </div>
@@ -255,8 +263,8 @@
               <div class="testimonial-slide">
                 <div class="testimonial-card-new">
                   <div class="testimonial-left">
-                    <h3 class="testimonial-name">Alex Martinez</h3>
-                    <p class="testimonial-text">
+                    <h3 class="testimonial-name" data-translate="testimonials.items.0.name">Alex Martinez</h3>
+                    <p class="testimonial-text" data-translate="testimonials.items.0.text">
                       Innovate Studio brought our MOBA vision to life with incredible attention to detail. The gameplay is smooth, the mechanics are balanced, and our player community has grown exponentially. They exceeded every expectation and delivered a truly competitive gaming experience.
                     </p>
                   </div>
@@ -270,8 +278,8 @@
               <div class="testimonial-slide">
                 <div class="testimonial-card-new">
                   <div class="testimonial-left">
-                    <h3 class="testimonial-name">Emma Rodriguez</h3>
-                    <p class="testimonial-text">
+                    <h3 class="testimonial-name" data-translate="testimonials.items.1.name">Emma Rodriguez</h3>
+                    <p class="testimonial-text" data-translate="testimonials.items.1.text">
                       The flying mechanics in Crypto Blasters are absolutely phenomenal! Innovate Studio created something truly special - the controls are intuitive yet deep, and the aerial combat is unlike anything else on the market. Our players can't get enough of the drone customization and competitive dogfights.
                     </p>
                   </div>
@@ -285,8 +293,8 @@
               <div class="testimonial-slide">
                 <div class="testimonial-card-new">
                   <div class="testimonial-left">
-                    <h3 class="testimonial-name">Marcus Chen</h3>
-                    <p class="testimonial-text">
+                    <h3 class="testimonial-name" data-translate="testimonials.items.2.name">Marcus Chen</h3>
+                    <p class="testimonial-text" data-translate="testimonials.items.2.text">
                       Innovate Studio captured the essence of what makes racing games great. Metaforza's graphics are stunning, the physics feel authentic, and the sense of speed is incredible. Our racing community has embraced it wholeheartedly, and the competitive scene is thriving. Truly a masterpiece in racing game development.
                     </p>
                   </div>
@@ -300,8 +308,8 @@
               <div class="testimonial-slide">
                 <div class="testimonial-card-new">
                   <div class="testimonial-left">
-                    <h3 class="testimonial-name">Jessica Park</h3>
-                    <p class="testimonial-text">
+                    <h3 class="testimonial-name" data-translate="testimonials.items.3.name">Jessica Park</h3>
+                    <p class="testimonial-text" data-translate="testimonials.items.3.text">
                       Innovate Studio perfectly captured the addictive 'one more run' feeling that makes bullet heaven games so compelling. Rampage's upgrade system is genius - the synergies between powers create amazing moments. Our players are obsessed, with some logging hundreds of hours trying different builds and chasing high scores.
                     </p>
                   </div>
@@ -328,8 +336,8 @@
     <section id="team" class="team">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Our Team</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" data-translate="team.title">Our Team</h2>
+          <p class="section-subtitle" data-translate="team.subtitle">
             Meet the creative minds behind our success
           </p>
         </div>
@@ -381,9 +389,9 @@
                 </div>
               </div>
               <div class="member-info">
-                <h3 class="member-name">Sarah Johnson</h3>
-                <p class="member-role">Creative Director</p>
-                <p class="member-bio">
+                <h3 class="member-name" data-translate="team.members.0.name">Sarah Johnson</h3>
+                <p class="member-role" data-translate="team.members.0.role">Creative Director</p>
+                <p class="member-bio" data-translate="team.members.0.bio">
                   Visionary leader with 10+ years of experience in digital
                   design
                 </p>
@@ -437,9 +445,9 @@
                 </div>
               </div>
               <div class="member-info">
-                <h3 class="member-name">Michael Chen</h3>
-                <p class="member-role">Lead Developer</p>
-                <p class="member-bio">
+                <h3 class="member-name" data-translate="team.members.1.name">Michael Chen</h3>
+                <p class="member-role" data-translate="team.members.1.role">Lead Developer</p>
+                <p class="member-bio" data-translate="team.members.1.bio">
                   Full-stack expert passionate about performance and clean code
                 </p>
               </div>
@@ -492,9 +500,9 @@
                 </div>
               </div>
               <div class="member-info">
-                <h3 class="member-name">Emily Rodriguez</h3>
-                <p class="member-role">UX Designer</p>
-                <p class="member-bio">
+                <h3 class="member-name" data-translate="team.members.2.name">Emily Rodriguez</h3>
+                <p class="member-role" data-translate="team.members.2.role">UX Designer</p>
+                <p class="member-bio" data-translate="team.members.2.bio">
                   User experience specialist focused on intuitive interfaces
                 </p>
               </div>
@@ -547,9 +555,9 @@
                 </div>
               </div>
               <div class="member-info">
-                <h3 class="member-name">David Park</h3>
-                <p class="member-role">Marketing Lead</p>
-                <p class="member-bio">
+                <h3 class="member-name" data-translate="team.members.3.name">David Park</h3>
+                <p class="member-role" data-translate="team.members.3.role">Marketing Lead</p>
+                <p class="member-bio" data-translate="team.members.3.bio">
                   Growth strategist driving brand awareness and engagement
                 </p>
               </div>
@@ -563,8 +571,8 @@
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Free Quotation</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" data-translate="contact.title">Free Quotation</h2>
+          <p class="section-subtitle" data-translate="contact.subtitle">
             Book a free meeting to discuss your ideas, brainstorm solutions, and
             receive a detailed pricing quote for your project development. Let's
             bring your vision to life together.
@@ -575,7 +583,7 @@
             <div class="contact-item">
               <img src="public/wa.svg" alt="WhatsApp" class="wa-contact-icon" />
               <div>
-                <h4>WhatsApp</h4>
+                <h4 data-translate="contact.whatsapp">WhatsApp</h4>
                 <p>
                   <a
                     href="https://wa.me/201553163557"
@@ -599,7 +607,7 @@
                 />
               </svg>
               <div>
-                <h4>Phone</h4>
+                <h4 data-translate="contact.phone">Phone</h4>
                 <p>+20 1553163557</p>
               </div>
             </div>
@@ -616,7 +624,7 @@
                 <polyline points="22,6 12,13 2,6" />
               </svg>
               <div>
-                <h4>Email</h4>
+                <h4 data-translate="contact.email">Email</h4>
                 <p>mohmedfakhryahmed@gmail.com</p>
               </div>
             </div>
@@ -627,6 +635,7 @@
                 type="text"
                 name="name"
                 id="contactName"
+                data-translate-placeholder="contact.form.name"
                 placeholder="Your Name"
                 required
               />
@@ -636,6 +645,7 @@
                 type="email"
                 name="email"
                 id="contactEmail"
+                data-translate-placeholder="contact.form.email"
                 placeholder="Your Email"
                 required
               />
@@ -644,13 +654,14 @@
               <textarea
                 name="message"
                 id="contactMessage"
+                data-translate-placeholder="contact.form.message"
                 placeholder="Your Message"
                 rows="5"
                 required
               ></textarea>
             </div>
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary" data-translate="contact.form.send">
                 Send Message
               </button>
               <a
@@ -659,6 +670,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-google-meeting"
+                data-translate="contact.form.bookMeeting"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -670,7 +682,7 @@
                     d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"
                   />
                 </svg>
-                Book Free Meeting
+                <span data-translate="contact.form.bookMeeting">Book Free Meeting</span>
               </a>
             </div>
           </form>
@@ -694,9 +706,9 @@
                 d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
               />
             </svg>
-            <span>Innovate Studio</span>
+            <span data-translate="footer.brand">Innovate Studio</span>
           </div>
-          <p class="footer-text">
+          <p class="footer-text" data-translate="footer.copyright">
             &copy; 2024 Innovate Studio. All rights reserved.
           </p>
         </div>
@@ -706,7 +718,7 @@
     <!-- Project Modal -->
     <div class="video-modal" id="videoModal">
       <div class="video-modal-content">
-        <button class="video-modal-close" id="closeModal" aria-label="Close modal">
+        <button class="video-modal-close" id="closeModal" aria-label="Close modal" data-translate="modal.close">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -747,13 +759,13 @@
           
           <!-- Project Description -->
           <div class="modal-description-section">
-            <h3 class="section-heading">About This Project</h3>
+            <h3 class="section-heading" data-translate="modal.aboutProject">About This Project</h3>
             <p class="modal-project-description" id="modalDescription"></p>
           </div>
           
           <!-- Technologies Used -->
           <div class="technologies-section">
-            <h3 class="section-heading">Technologies Used</h3>
+            <h3 class="section-heading" data-translate="modal.technologiesUsed">Technologies Used</h3>
             <div class="technologies-list" id="projectTechnologies">
               <!-- Technologies will be added here dynamically -->
             </div>
@@ -767,7 +779,7 @@
           <!-- View Project Button -->
           <div class="modal-footer-section">
             <a href="#" id="projectLink" class="project-link-btn" target="_blank" rel="noopener noreferrer">
-              <span>View Live Project</span>
+              <span data-translate="modal.viewLiveProject">View Live Project</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
