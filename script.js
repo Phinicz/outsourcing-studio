@@ -94,6 +94,14 @@ function toggleLanguage() {
   // Reinitialize testimonial slider to update direction
   initTestimonialSlider();
   
+  // Close mobile menu if open
+  const navMenu = document.querySelector('.nav-menu');
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navMenu && navToggle) {
+    navMenu.classList.remove('active');
+    navToggle.classList.remove('active');
+  }
+  
   console.log('Language toggled to', currentLang);
 }
 
@@ -644,14 +652,23 @@ function initAll() {
   console.log('1. Initializing translations...');
   applyTranslations();
   
-  // Initialize language toggle
+  // Initialize language toggle (both desktop and mobile)
   console.log('2. Setting up language toggle...');
   const langToggle = document.getElementById('langToggle');
+  const langToggleMobile = document.getElementById('langToggleMobile');
+  
   if (langToggle) {
     langToggle.addEventListener('click', toggleLanguage);
-    console.log('✓ Language toggle button found and connected');
+    console.log('✓ Desktop language toggle button found and connected');
   } else {
-    console.error('✗ Language toggle button NOT found!');
+    console.error('✗ Desktop language toggle button NOT found!');
+  }
+  
+  if (langToggleMobile) {
+    langToggleMobile.addEventListener('click', toggleLanguage);
+    console.log('✓ Mobile language toggle button found and connected');
+  } else {
+    console.error('✗ Mobile language toggle button NOT found!');
   }
   
   // Initialize navigation

@@ -49,9 +49,7 @@ html[dir="rtl"] .nav-brand {
   flex-direction: row-reverse;
 }
 
-html[dir="rtl"] .nav-menu {
-  flex-direction: row-reverse;
-}
+/* Removed - causing horizontal layout in mobile menu */
 
 html[dir="rtl"] .hero-buttons {
   flex-direction: row-reverse;
@@ -69,8 +67,11 @@ html[dir="rtl"] .portfolio-filters {
   direction: rtl;
 }
 
-html[dir="rtl"] .testimonial-card-new {
-  flex-direction: row-reverse;
+/* Only reverse on desktop, not mobile */
+@media (min-width: 769px) {
+  html[dir="rtl"] .testimonial-card-new {
+    flex-direction: row-reverse;
+  }
 }
 
 html[dir="rtl"] .free-badge {
@@ -190,6 +191,10 @@ html[dir="rtl"] .form-group textarea {
 }
 
 /* Language Toggle Button */
+.nav-menu-lang-mobile {
+  display: none; /* Hidden on desktop */
+}
+
 .lang-toggle {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: #fff;
@@ -215,6 +220,16 @@ html[dir="rtl"] .form-group textarea {
 
 .lang-text {
   display: inline-block;
+}
+
+/* Desktop language toggle - visible on desktop */
+.lang-toggle-desktop {
+  display: block;
+}
+
+/* Mobile language toggle - hidden on desktop */
+.lang-toggle-mobile {
+  display: none;
 }
 
 .nav-toggle {
@@ -587,7 +602,7 @@ html[dir="rtl"] .hero-logos-track {
     left: -100%;
     width: 100%;
     height: calc(100vh - 70px);
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(10, 10, 20, 0.98);
     backdrop-filter: blur(10px);
     flex-direction: column;
     align-items: center;
@@ -606,19 +621,26 @@ html[dir="rtl"] .hero-logos-track {
     display: flex;
   }
 
-  .lang-toggle {
-    position: fixed;
-    top: 15px;
-    right: 60px;
-    z-index: 1001;
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
-    margin-left: 0;
+  /* Hide desktop language toggle on mobile */
+  .lang-toggle-desktop {
+    display: none;
   }
   
-  html[dir="rtl"] .lang-toggle {
-    right: auto;
-    left: 60px;
+  /* Show mobile language toggle inside menu */
+  .nav-menu-lang-mobile {
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  .lang-toggle-mobile {
+    display: block;
+    padding: 0.6rem 2rem;
+    font-size: 1rem;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  html[dir="rtl"] .lang-toggle-mobile {
     margin-right: 0;
   }
   
@@ -1804,7 +1826,7 @@ section {
   }
 
   .testimonial-card-new {
-    flex-direction: column;
+    flex-direction: column !important;
     text-align: center;
     gap: 1.5rem;
     padding: 2rem;
