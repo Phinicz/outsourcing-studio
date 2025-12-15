@@ -228,8 +228,143 @@
         </div>
     </div>
 
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
     <script>
-        function loadData() {
+        let supabaseClient = null;
+
+        // Initialize Supabase and load data
+        async function initAndLoadData() {
+            supabaseClient = await window.waitForSupabase();
+            if (supabaseClient) {
+                await loadData();
+            } else {
+                console.error('Failed to initialize Supabase');
+                // Fallback to localStorage
+                loadLocalStorageData();
+            }
+        }
+
+        async function loadData() {
+            if (!supabaseClient) {
+                loadLocalStorageData();
+                return;
+            }
+
+            try {
+                // Load messages from Supabase
+                const { data: messages, error: messagesError } = await supabaseClient
+                    .from('messages')
+                    .select('*')
+                    .order('timestamp', { ascending: false })
+                    .limit(20);
+
+                if (messagesError) throw messagesError;
+
+                // Load visitors from Supabase
+                const { data: visitors, error: visitorsError } = await supabaseClient
+                    .from('visitors')
+                    .select('*')
+                    .order('timestamp', { ascending: false })
+                    .limit(30);
+
+                if (visitorsError) throw visitorsError;
+
+                // Count unique visitors in last hour
+                const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+                const { data: recentVisitors, error: recentError } = await supabaseClient
+                    .from('visitors')
+                    .select('visitor_id')
+                    .gte('timestamp', oneHourAgo);
+
+                if (recentError) throw recentError;
+
+                const uniqueRecentVisitors = new Set(recentVisitors.map(v => v.visitor_id)).size;
+
+                // Update stats
+                document.getElementById('totalMessages').textContent = messages?.length || 0;
+                document.getElementById('totalVisitors').textContent = visitors?.length || 0;
+                document.getElementById('currentVisitors').textContent = uniqueRecentVisitors;
+
+                // Display messages
+                displayMessages(messages || []);
+
+                // Display visitors
+                displayVisitors(visitors || []);
+
+            } catch (error) {
+                console.error('Error loading data from Supabase:', error);
+                // Fallback to localStorage
+                loadLocalStorageData();
+            }
+        }
+
+        function displayMessages(messages) {
+            const messagesList = document.getElementById('messagesList');
+            if (messages.length === 0) {
+                messagesList.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <p>No messages yet</p>
+                    </div>
+                `;
+            } else {
+                messagesList.innerHTML = messages
+                    .map(msg => `
+                        <div class="message-item">
+                            <div class="message-header">
+                                <div class="message-info">
+                                    <h4>${escapeHtml(msg.name)}</h4>
+                                    <p>${escapeHtml(msg.email)}</p>
+                                </div>
+                                <div class="message-meta">
+                                    <p>${formatDate(msg.timestamp)}</p>
+                                    <p>ID: ${msg.visitor_id?.substring(0, 15) || 'unknown'}</p>
+                                </div>
+                            </div>
+                            <div class="message-content">${escapeHtml(msg.message)}</div>
+                            <div class="message-location">
+                                <span>📍 ${msg.country || 'Unknown'}, ${msg.city || 'Unknown'}</span>
+                                <span>🌐 IP: ${msg.ip || 'Unknown'}</span>
+                            </div>
+                        </div>
+                    `).join('');
+            }
+        }
+
+        function displayVisitors(visitors) {
+            const visitorsList = document.getElementById('visitorsList');
+            if (visitors.length === 0) {
+                visitorsList.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <p>No visitors tracked yet</p>
+                    </div>
+                `;
+            } else {
+                visitorsList.innerHTML = visitors
+                    .map(visitor => `
+                        <div class="visitor-item">
+                            <h4>Visitor ${visitor.visitor_id?.substring(0, 15) || 'unknown'}...</h4>
+                            <p>🕐 ${formatDate(visitor.timestamp)}</p>
+                            <p>📍 ${visitor.country || 'Unknown'}, ${visitor.city || 'Unknown'}</p>
+                            <p>🌐 IP: ${visitor.ip || 'Unknown'}</p>
+                            <p>📄 ${visitor.page || '/'}</p>
+                        </div>
+                    `).join('');
+            }
+        }
+
+        function loadLocalStorageData() {
             // Load messages
             const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
             document.getElementById('totalMessages').textContent = messages.length;
@@ -331,7 +466,7 @@
         }
         
         // Load data on page load
-        loadData();
+        initAndLoadData();
         
         // Auto-refresh every 30 seconds
         setInterval(refreshData, 30000);

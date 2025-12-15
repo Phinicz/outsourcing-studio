@@ -1,0 +1,75 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                   ANALYTICS SETUP - 3 STEPS                      ║
+╚══════════════════════════════════════════════════════════════════╝
+
+STEP 1: GET YOUR ANON KEY (2 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open this URL in your browser:
+   https://supabase.com/dashboard/project/vxmffyxfqxapbrrmpfhd/settings/api
+
+2. Find "Project API keys" section
+
+3. Copy the "anon" "public" key
+   (starts with: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...)
+
+
+STEP 2: CREATE DATABASE TABLES (2 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open this URL:
+   https://supabase.com/dashboard/project/vxmffyxfqxapbrrmpfhd/sql/new
+
+2. Open file: supabase-schema.sql
+
+3. Copy ALL the SQL code
+
+4. Paste into SQL Editor
+
+5. Click "Run" button
+
+
+STEP 3: UPDATE YOUR KEY (1 minute)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open file: supabase-config.js
+
+2. Find line 3:
+   const SUPABASE_ANON_KEY = '...placeholder';
+
+3. Replace "placeholder" with your key from Step 1
+
+4. Save the file
+
+
+✅ DONE! NOW TEST:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open: tmp_rovodev_quick_test.html
+   (update the key in that file too)
+
+2. Click all test buttons - should see ✅
+
+3. Open: index.html (your main site)
+   - Your visit is tracked automatically!
+
+4. Submit a message through contact form
+
+5. Open: admin.html
+   - See your analytics dashboard!
+
+
+📊 WHAT YOU GET:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ Track all visitors with location data
+✓ Store contact messages with sender location
+✓ Real-time admin dashboard
+✓ Auto-refresh every 30 seconds
+✓ Cloud backup in Supabase
+✓ Country, City, Region, IP tracking
+
+
+🆘 NEED HELP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Read: START_HERE.md (detailed guide)
+Read: QUICK_REFERENCE.md (quick tips)
+Read: ANALYTICS_README.md (full docs)
+
+
+🎯 NEXT ACTION: Follow Step 1 above!

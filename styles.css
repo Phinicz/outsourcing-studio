@@ -625,13 +625,13 @@ html[dir="rtl"] .hero-logos-track {
   .lang-toggle-desktop {
     display: none;
   }
-  
+
   /* Show mobile language toggle inside menu */
   .nav-menu-lang-mobile {
     display: block;
     margin-top: 1rem;
   }
-  
+
   .lang-toggle-mobile {
     display: block;
     padding: 0.6rem 2rem;
@@ -639,11 +639,11 @@ html[dir="rtl"] .hero-logos-track {
     margin-left: 0;
     width: 100%;
   }
-  
+
   html[dir="rtl"] .lang-toggle-mobile {
     margin-right: 0;
   }
-  
+
   .scroll-indicator {
     bottom: 20px;
     margin-top: 60px;
@@ -1172,35 +1172,45 @@ section {
   border-radius: 4px;
 }
 
-.video-modal-close {
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  background: white;
-  border: 3px solid #000;
+/* Desktop Close Button */
+.video-modal-close-desktop {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
   color: #000;
-  font-size: 2rem;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  z-index: 10001;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10002;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.video-modal-close:hover {
-  background: #f3f4f6;
-  transform: rotate(90deg) scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+.video-modal-close-desktop:hover {
+  background: white;
+  transform: rotate(90deg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-.video-modal-close svg {
-  width: 28px;
-  height: 28px;
+.video-modal-close-desktop svg {
+  width: 22px;
+  height: 22px;
+  color: #000;
+}
+
+/* Mobile Header (hidden on desktop) */
+.modal-mobile-header {
+  display: none;
+}
+
+.modal-mobile-close {
+  display: none;
 }
 
 .modal-video-container {
@@ -1208,9 +1218,13 @@ section {
   aspect-ratio: 16/9;
   background: #000;
   position: relative;
+  min-height: 400px;
 }
 
 .modal-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: none;
@@ -1975,26 +1989,84 @@ section {
     max-width: 100%;
   }
 
+  /* Mobile Modal - Full Screen */
   .video-modal {
-    padding: 1.5rem 1rem;
+    padding: 0;
+    align-items: stretch;
   }
 
   .video-modal-content {
-    max-height: 95vh;
-    margin: 1rem auto;
-    border-radius: 16px;
+    margin: 0;
+    border-radius: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    max-height: none;
   }
 
-  .video-modal-close {
-    top: -10px;
-    right: -10px;
-    width: 50px;
-    height: 50px;
+  /* Hide desktop close button on mobile */
+  .video-modal-close-desktop {
+    display: none;
   }
 
-  .video-modal-close svg {
-    width: 24px;
-    height: 24px;
+  /* Show mobile header - NOT sticky, part of scroll */
+  .modal-mobile-header {
+    display: block;
+    padding: 1.5rem 1.5rem 1rem 0;
+    background: white;
+    position: relative;
+  }
+
+  .modal-mobile-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 0.75rem 1rem;
+  }
+
+  .modal-mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Rectangle + half circle shape */
+    border-radius: 0 50px 50px 0;
+    position: relative;
+    margin-left: 0;
+    margin-right: auto;
+    width: fit-content;
+    height: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .modal-mobile-close:active {
+    background: #333;
+    transform: scale(0.95);
+  }
+
+  .modal-mobile-close svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Mobile video container - smaller height, no black space */
+  .modal-video-container {
+    aspect-ratio: unset;
+    min-height: 0;
+    height: 250px;
+    max-height: 250px;
+  }
+
+  .modal-video-container iframe {
+    position: relative;
+    height: 100%;
+    object-fit: cover;
   }
 
   .modal-project-title {

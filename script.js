@@ -60,16 +60,28 @@ function applyTranslations() {
   });
   console.log('Translated', placeholderCount, 'placeholder elements');
   
-  // Update language toggle button text
+  // Update language toggle buttons text (both desktop and mobile)
   const langToggle = document.getElementById('langToggle');
+  const langToggleMobile = document.getElementById('langToggleMobile');
+  
   if (langToggle) {
     const langText = langToggle.querySelector('.lang-text');
     if (langText) {
       langText.textContent = lang === 'en' ? 'عربي' : 'English';
-      console.log('Language toggle button updated');
+      console.log('Desktop language toggle button updated');
     }
   } else {
-    console.warn('Language toggle button not found');
+    console.warn('Desktop language toggle button not found');
+  }
+  
+  if (langToggleMobile) {
+    const langTextMobile = langToggleMobile.querySelector('.lang-text');
+    if (langTextMobile) {
+      langTextMobile.textContent = lang === 'en' ? 'عربي' : 'English';
+      console.log('Mobile language toggle button updated');
+    }
+  } else {
+    console.warn('Mobile language toggle button not found');
   }
   
   // Update body font family for Arabic
@@ -455,6 +467,12 @@ const initVideoModal = () => {
           document.getElementById("modalTitle").textContent = data.title;
           document.getElementById("modalDescription").textContent =
             data.description;
+          
+          // Update mobile title
+          const modalMobileTitle = document.getElementById("modalMobileTitle");
+          if (modalMobileTitle) {
+            modalMobileTitle.textContent = data.title;
+          }
 
           // Update testimonial section
           const testimonialSection = document.getElementById("testimonialSection");
@@ -528,12 +546,21 @@ const initVideoModal = () => {
     }
   });
 
+  // Close modal handlers (both desktop and mobile)
+  const closeModalMobile = document.getElementById("closeModalMobile");
+  
+  const closeModalHandler = () => {
+    videoModal.classList.remove("active");
+    modalVideo.src = "";
+    document.body.style.overflow = "";
+  };
+  
   if (closeModal) {
-    closeModal.addEventListener("click", () => {
-      videoModal.classList.remove("active");
-      modalVideo.src = "";
-      document.body.style.overflow = "";
-    });
+    closeModal.addEventListener("click", closeModalHandler);
+  }
+  
+  if (closeModalMobile) {
+    closeModalMobile.addEventListener("click", closeModalHandler);
   }
 
   if (videoModal) {
@@ -783,7 +810,45 @@ const getVisitorLocation = async () => {
   }
 };
 
-const saveVisitorData = (visitorId, location) => {
+const saveVisitorData = async (visitorId, location) => {
+  const visitorData = {
+    visitor_id: visitorId,
+    timestamp: new Date().toISOString(),
+    country: location.country,
+    city: location.city,
+    region: location.region,
+    ip: location.ip,
+    page: window.location.pathname,
+    user_agent: navigator.userAgent,
+  };
+
+  // Try to save to Supabase
+  try {
+    const supabase = await window.waitForSupabase();
+    if (supabase) {
+      const { data, error } = await supabase
+        .from('visitors')
+        .insert([visitorData]);
+      
+      if (error) {
+        console.error('Error saving visitor to Supabase:', error);
+        // Fallback to localStorage
+        saveVisitorToLocalStorage(visitorId, location);
+      } else {
+        console.log('Visitor saved to Supabase successfully');
+      }
+    } else {
+      // Fallback to localStorage
+      saveVisitorToLocalStorage(visitorId, location);
+    }
+  } catch (error) {
+    console.error('Error with Supabase:', error);
+    // Fallback to localStorage
+    saveVisitorToLocalStorage(visitorId, location);
+  }
+};
+
+const saveVisitorToLocalStorage = (visitorId, location) => {
   const visitorData = {
     id: visitorId,
     timestamp: new Date().toISOString(),
@@ -849,23 +914,43 @@ if (contactForm) {
       const location = await getVisitorLocation();
       const visitorId = sessionStorage.getItem("visitorId") || "unknown";
 
-      // Save message
+      // Prepare message data for Supabase
       const messageData = {
-        id: Date.now(),
+        visitor_id: visitorId,
         name: name,
         email: email,
         message: message,
         timestamp: new Date().toISOString(),
-        visitorId: visitorId,
-        location: location,
+        country: location.country,
+        city: location.city,
+        region: location.region,
+        ip: location.ip,
       };
 
-      messages.push(messageData);
-      // Keep only last 500 messages
-      if (messages.length > 500) {
-        messages.splice(0, messages.length - 500);
+      // Try to save to Supabase
+      try {
+        const supabase = await window.waitForSupabase();
+        if (supabase) {
+          const { data, error } = await supabase
+            .from('messages')
+            .insert([messageData]);
+          
+          if (error) {
+            console.error('Error saving message to Supabase:', error);
+            // Fallback to localStorage
+            saveMessageToLocalStorage(name, email, message, visitorId, location);
+          } else {
+            console.log('Message saved to Supabase successfully');
+          }
+        } else {
+          // Fallback to localStorage
+          saveMessageToLocalStorage(name, email, message, visitorId, location);
+        }
+      } catch (error) {
+        console.error('Error with Supabase:', error);
+        // Fallback to localStorage
+        saveMessageToLocalStorage(name, email, message, visitorId, location);
       }
-      localStorage.setItem("portfolioMessages", JSON.stringify(messages));
 
       // Show success message
       alert("Thank you for your message! We'll get back to you soon.");
@@ -875,6 +960,26 @@ if (contactForm) {
     }
   });
 }
+
+// Helper function to save message to localStorage
+const saveMessageToLocalStorage = (name, email, message, visitorId, location) => {
+  const messageData = {
+    id: Date.now(),
+    name: name,
+    email: email,
+    message: message,
+    timestamp: new Date().toISOString(),
+    visitorId: visitorId,
+    location: location,
+  };
+
+  messages.push(messageData);
+  // Keep only last 500 messages
+  if (messages.length > 500) {
+    messages.splice(0, messages.length - 500);
+  }
+  localStorage.setItem("portfolioMessages", JSON.stringify(messages));
+};
 
 // Parallax effect for hero background
 window.addEventListener("scroll", () => {
