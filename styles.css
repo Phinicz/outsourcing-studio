@@ -1822,7 +1822,7 @@ section {
 }
 
 .pagination-dot.active {
-  background: #2a2a2a;
+  background: var(--primary);
   width: 25px;
   border-radius: 5px;
 }
