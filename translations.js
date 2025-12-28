@@ -113,8 +113,7 @@ const translations = {
         name: "Your Name",
         email: "Your Email",
         message: "Your Message",
-        send: "Send Message",
-        bookMeeting: "Book Free Meeting"
+        send: "Send Message"
       },
       success: "Thank you for your message! We'll get back to you soon.",
       error: "Please fill in all fields."
@@ -245,8 +244,7 @@ const translations = {
         name: "اسمك",
         email: "بريدك الإلكتروني",
         message: "رسالتك",
-        send: "إرسال الرسالة",
-        bookMeeting: "احجز اجتماع مجاني"
+        send: "إرسال الرسالة"
       },
       success: "شكرًا لك على رسالتك! سنعود إليك قريبًا.",
       error: "يرجى ملء جميع الحقول."

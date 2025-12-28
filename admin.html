@@ -3,475 +3,932 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Innovate Studio</title>
+    <title>Analytics Dashboard - Innovate Studio</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .admin-container {
-            max-width: 1400px;
+        /* Modern Dashboard Design System */
+        :root {
+            --dashboard-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--dashboard-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 2rem;
-            padding-top: 100px;
-        }
-        
-        .admin-header {
-            margin-bottom: 2rem;
-        }
-        
-        .admin-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px var(--shadow);
-        }
-        
-        .stat-card h3 {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-card .stat-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-        
-        .section-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px var(--shadow);
-            margin-bottom: 2rem;
-        }
-        
-        .section-card h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-        
-        .messages-list {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
             gap: 1rem;
         }
-        
-        .message-item {
-            padding: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
+
+        .header-brand h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
         }
-        
-        .message-header {
+
+        .header-brand p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dashboard-bg);
+        }
+
+        .btn-secondary.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Dashboard Layout */
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Stats Section */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .stat-card.primary::before { background: var(--primary-gradient); }
+        .stat-card.success::before { background: var(--success-gradient); }
+        .stat-card.warning::before { background: var(--warning-gradient); }
+        .stat-card.danger::before { background: var(--danger-gradient); }
+
+        .stat-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1rem;
-            flex-wrap: wrap;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: var(--bg-light);
+        }
+
+        .stat-card.primary .stat-icon { background: rgba(102, 126, 234, 0.1); }
+        .stat-card.success .stat-icon { background: rgba(16, 185, 129, 0.1); }
+        .stat-card.warning .stat-icon { background: rgba(245, 158, 11, 0.1); }
+        .stat-card.danger .stat-icon { background: rgba(239, 68, 68, 0.1); }
+
+        .stat-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .stat-trend.up { color: var(--success); }
+        .stat-trend.down { color: var(--danger); }
+
+        /* Main Content Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .card-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            padding: 0.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: var(--dashboard-bg);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Funnel Visualization */
+        .funnel-viz {
+            display: flex;
+            flex-direction: column;
             gap: 1rem;
         }
-        
-        .message-info h4 {
-            font-size: 1.1rem;
+
+        .funnel-step {
+            position: relative;
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .funnel-step:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .funnel-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: var(--progress, 100%);
+            background: var(--step-gradient);
+            opacity: 0.1;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .funnel-step.step-1::before { background: var(--primary-gradient); }
+        .funnel-step.step-2::before { background: var(--success-gradient); }
+        .funnel-step.step-3::before { background: var(--warning-gradient); }
+        .funnel-step.step-4::before { background: var(--danger-gradient); }
+
+        .funnel-content {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .funnel-info {
+            flex: 1;
+        }
+
+        .funnel-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .funnel-title {
+            font-size: 1.125rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
-        
-        .message-info p {
+
+        .funnel-desc {
+            font-size: 0.875rem;
             color: var(--text-secondary);
-            font-size: 0.9rem;
         }
-        
-        .message-meta {
+
+        .funnel-stats {
             text-align: right;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
         }
-        
-        .message-content {
+
+        .funnel-count {
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--text-primary);
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
+            line-height: 1;
         }
-        
-        .message-location {
-            font-size: 0.85rem;
+
+        .funnel-rate {
+            font-size: 0.875rem;
             color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .data-table thead th {
+            background: var(--dashboard-bg);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .data-table tbody td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .data-table tbody tr {
+            transition: all 0.2s;
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--dashboard-bg);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-primary { background: rgba(102, 126, 234, 0.1); color: #667eea; }
+        .badge-success { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .badge-warning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        .badge-danger { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 9999px;
+            transition: width 0.5s ease;
+        }
+
+        /* Metric Grid */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .metric-box {
+            background: var(--dashboard-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .metric-subtext {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .empty-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.3;
+        }
+
+        .empty-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Quick Actions */
+        .quick-actions {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
-        .visitors-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-        
-        .visitor-item {
-            padding: 1rem;
-            background: var(--bg-secondary);
+
+        .action-card {
+            flex: 1;
+            min-width: 200px;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 2px dashed var(--border-color);
             border-radius: 12px;
-            border-left: 4px solid var(--secondary);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        
-        .visitor-item h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
+
+        .action-card:hover {
+            border-color: var(--primary);
+            background: var(--dashboard-bg);
+        }
+
+        .action-icon {
+            font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-        
-        .visitor-item p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin: 0.25rem 0;
+
+        .action-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Message Read/Unread Styles */
+        .message-card {
+            position: relative;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
         
-        .refresh-btn {
+        .message-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .message-card.unread {
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .message-card.unread::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+        }
+        
+        .message-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .message-status.unread {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary);
+        }
+        
+        .message-status.read {
+            background: rgba(148, 163, 184, 0.1);
+            color: var(--text-muted);
+        }
+        
+        .mark-read-btn {
+            padding: 0.5rem 1rem;
             background: var(--primary);
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
             border-radius: 8px;
+            font-size: 0.875rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
         
-        .refresh-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+        .mark-read-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
         }
         
-        .empty-state {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-secondary);
+        .mark-read-btn:disabled {
+            background: var(--border-color);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
         }
-        
-        .empty-state svg {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 1rem;
-            opacity: 0.3;
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .funnel-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .funnel-stats {
+                text-align: center;
+            }
+
+            .data-table {
+                font-size: 0.875rem;
+            }
+
+            .data-table thead th,
+            .data-table tbody td {
+                padding: 0.75rem 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-                <span>Innovate Studio - Admin</span>
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="header-brand">
+                <div>
+                    <h1>📊 Analytics Dashboard</h1>
+                    <p>Innovate Studio • Real-time insights</p>
+                </div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Back to Site</a></li>
-            </ul>
+            <div class="header-actions">
+                <button class="btn btn-secondary" onclick="refreshData()">
+                    🔄 Refresh
+                </button>
+                <a href="index.html" class="btn btn-primary">
+                    ← Back to Site
+                </a>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <div class="admin-container">
-        <div class="admin-header">
-            <h1 class="admin-title">Admin Dashboard</h1>
-            <button class="refresh-btn" onclick="refreshData()">Refresh Data</button>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Hero Stats -->
+        <div class="hero-stats">
+            <div class="stat-card success">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">New Messages</div>
+                        <div class="stat-value" id="unreadMessages">-</div>
+                        <div class="stat-trend" id="unreadTrend">📬 Unread</div>
+                    </div>
+                    <div class="stat-icon">✉️</div>
+                </div>
+            </div>
+
+            <div class="stat-card primary">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Conversion Rate</div>
+                        <div class="stat-value" id="conversionRate">-</div>
+                        <div class="stat-trend">📊 Of all visitors</div>
+                    </div>
+                    <div class="stat-icon">📈</div>
+                </div>
+            </div>
+
+            <div class="stat-card warning">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Portfolio Interest</div>
+                        <div class="stat-value" id="portfolioEngagement">-</div>
+                        <div class="stat-trend" id="portfolioTrend">💼 Viewed your work</div>
+                    </div>
+                    <div class="stat-icon">👀</div>
+                </div>
+            </div>
+
+            <div class="stat-card danger">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-label">Drop-Off Point</div>
+                        <div class="stat-value" id="dropOffPoint">-</div>
+                        <div class="stat-trend" id="dropOffTrend">🔍 Where to optimize</div>
+                    </div>
+                    <div class="stat-icon">⚠️</div>
+                </div>
+            </div>
         </div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>Current Visitors</h3>
-                <div class="stat-value" id="currentVisitors">0</div>
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab(event, 'insights')">💡 Insights & Actions</button>
+            <button class="tab-btn" onclick="switchTab(event, 'funnel')">🎯 Conversion Funnel</button>
+            <button class="tab-btn" onclick="switchTab(event, 'engagement')">📊 User Engagement</button>
+            <button class="tab-btn" onclick="switchTab(event, 'messages')">✉️ Messages</button>
+        </div>
+
+        <!-- Tab Contents -->
+        
+        <!-- Insights & Actions Tab -->
+        <div id="insights-tab" class="tab-content active">
+            <!-- Recommendations Section -->
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                <div class="card-header" style="border-color: rgba(255,255,255,0.2);">
+                    <div>
+                        <h2 class="card-title" style="color: white;">🎯 What You Should Do Next</h2>
+                        <p class="card-subtitle" style="color: rgba(255,255,255,0.9);">AI-powered recommendations based on your data</p>
+                    </div>
+                </div>
+                <div id="recommendations">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
             </div>
-            <div class="stat-card">
-                <h3>Total Messages</h3>
-                <div class="stat-value" id="totalMessages">0</div>
-            </div>
-            <div class="stat-card">
-                <h3>Total Visitors</h3>
-                <div class="stat-value" id="totalVisitors">0</div>
+
+            <!-- Quick Stats Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">🎯 Conversion Performance</h3>
+                        </div>
+                    </div>
+                    <div id="conversionStats">
+                        <div class="loading"><div class="spinner"></div></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">💼 Portfolio Performance</h3>
+                        </div>
+                    </div>
+                    <div id="portfolioStats">
+                        <div class="loading"><div class="spinner"></div></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">📞 Contact Method Preference</h3>
+                        </div>
+                    </div>
+                    <div id="contactMethodStats">
+                        <div class="loading"><div class="spinner"></div></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="section-card">
-            <h2>Recent Messages</h2>
-            <div class="messages-list" id="messagesList">
-                <!-- Messages will be loaded here -->
+        <!-- Funnel Tab -->
+        <div id="funnel-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Conversion Funnel</h2>
+                        <p class="card-subtitle">Track the user journey from landing to conversion</p>
+                    </div>
+                </div>
+                <div class="funnel-viz" id="funnelContainer">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
             </div>
         </div>
 
-        <div class="section-card">
-            <h2>Recent Visitors</h2>
-            <div class="visitors-list" id="visitorsList">
-                <!-- Visitors will be loaded here -->
+        <!-- Engagement Tab -->
+        <div id="engagement-tab" class="tab-content">
+            <!-- User Journey Overview -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">📍 User Journey</h2>
+                        <p class="card-subtitle">See how users navigate through your site</p>
+                    </div>
+                </div>
+                <div id="journeyVisualization">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+
+            <!-- What's Working / What's Not -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                <div class="card" style="background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2);">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">✅ What's Working</h3>
+                            <p class="card-subtitle">Your top performing elements</p>
+                        </div>
+                    </div>
+                    <div id="whatWorking">
+                        <div class="loading"><div class="spinner"></div></div>
+                    </div>
+                </div>
+
+                <div class="card" style="background: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.2);">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">⚠️ What Needs Attention</h3>
+                            <p class="card-subtitle">Areas for improvement</p>
+                        </div>
+                    </div>
+                    <div id="whatNotWorking">
+                        <div class="loading"><div class="spinner"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Most Clicked CTAs -->
+            <div class="card" style="margin-top: 2rem;">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">🔥 Most Clicked Elements</h2>
+                        <p class="card-subtitle">What users are interested in</p>
+                    </div>
+                </div>
+                <div id="topClicksViz">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
             </div>
         </div>
+
+        <!-- Messages Tab -->
+        <div id="messages-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Contact Form Submissions</h2>
+                        <p class="card-subtitle" id="messagesSubtitle">Messages from potential clients</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <button class="btn btn-secondary" onclick="filterMessages('all')" id="filterAll">All</button>
+                        <button class="btn btn-secondary" onclick="filterMessages('unread')" id="filterUnread">Unread</button>
+                        <button class="btn btn-secondary" onclick="filterMessages('read')" id="filterRead">Read</button>
+                    </div>
+                </div>
+                <div id="messagesList">
+                    <div class="loading"><div class="spinner"></div></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Supabase JS Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
-    <script>
-        let supabaseClient = null;
-
-        // Initialize Supabase and load data
-        async function initAndLoadData() {
-            supabaseClient = await window.waitForSupabase();
-            if (supabaseClient) {
-                await loadData();
-            } else {
-                console.error('Failed to initialize Supabase');
-                // Fallback to localStorage
-                loadLocalStorageData();
-            }
-        }
-
-        async function loadData() {
-            if (!supabaseClient) {
-                loadLocalStorageData();
-                return;
-            }
-
-            try {
-                // Load messages from Supabase
-                const { data: messages, error: messagesError } = await supabaseClient
-                    .from('messages')
-                    .select('*')
-                    .order('timestamp', { ascending: false })
-                    .limit(20);
-
-                if (messagesError) throw messagesError;
-
-                // Load visitors from Supabase
-                const { data: visitors, error: visitorsError } = await supabaseClient
-                    .from('visitors')
-                    .select('*')
-                    .order('timestamp', { ascending: false })
-                    .limit(30);
-
-                if (visitorsError) throw visitorsError;
-
-                // Count unique visitors in last hour
-                const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-                const { data: recentVisitors, error: recentError } = await supabaseClient
-                    .from('visitors')
-                    .select('visitor_id')
-                    .gte('timestamp', oneHourAgo);
-
-                if (recentError) throw recentError;
-
-                const uniqueRecentVisitors = new Set(recentVisitors.map(v => v.visitor_id)).size;
-
-                // Update stats
-                document.getElementById('totalMessages').textContent = messages?.length || 0;
-                document.getElementById('totalVisitors').textContent = visitors?.length || 0;
-                document.getElementById('currentVisitors').textContent = uniqueRecentVisitors;
-
-                // Display messages
-                displayMessages(messages || []);
-
-                // Display visitors
-                displayVisitors(visitors || []);
-
-            } catch (error) {
-                console.error('Error loading data from Supabase:', error);
-                // Fallback to localStorage
-                loadLocalStorageData();
-            }
-        }
-
-        function displayMessages(messages) {
-            const messagesList = document.getElementById('messagesList');
-            if (messages.length === 0) {
-                messagesList.innerHTML = `
-                    <div class="empty-state">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        <p>No messages yet</p>
-                    </div>
-                `;
-            } else {
-                messagesList.innerHTML = messages
-                    .map(msg => `
-                        <div class="message-item">
-                            <div class="message-header">
-                                <div class="message-info">
-                                    <h4>${escapeHtml(msg.name)}</h4>
-                                    <p>${escapeHtml(msg.email)}</p>
-                                </div>
-                                <div class="message-meta">
-                                    <p>${formatDate(msg.timestamp)}</p>
-                                    <p>ID: ${msg.visitor_id?.substring(0, 15) || 'unknown'}</p>
-                                </div>
-                            </div>
-                            <div class="message-content">${escapeHtml(msg.message)}</div>
-                            <div class="message-location">
-                                <span>📍 ${msg.country || 'Unknown'}, ${msg.city || 'Unknown'}</span>
-                                <span>🌐 IP: ${msg.ip || 'Unknown'}</span>
-                            </div>
-                        </div>
-                    `).join('');
-            }
-        }
-
-        function displayVisitors(visitors) {
-            const visitorsList = document.getElementById('visitorsList');
-            if (visitors.length === 0) {
-                visitorsList.innerHTML = `
-                    <div class="empty-state">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                        <p>No visitors tracked yet</p>
-                    </div>
-                `;
-            } else {
-                visitorsList.innerHTML = visitors
-                    .map(visitor => `
-                        <div class="visitor-item">
-                            <h4>Visitor ${visitor.visitor_id?.substring(0, 15) || 'unknown'}...</h4>
-                            <p>🕐 ${formatDate(visitor.timestamp)}</p>
-                            <p>📍 ${visitor.country || 'Unknown'}, ${visitor.city || 'Unknown'}</p>
-                            <p>🌐 IP: ${visitor.ip || 'Unknown'}</p>
-                            <p>📄 ${visitor.page || '/'}</p>
-                        </div>
-                    `).join('');
-            }
-        }
-
-        function loadLocalStorageData() {
-            // Load messages
-            const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
-            document.getElementById('totalMessages').textContent = messages.length;
-            
-            // Load visitors
-            const visitors = JSON.parse(localStorage.getItem('portfolioVisitors') || '[]');
-            document.getElementById('totalVisitors').textContent = visitors.length;
-            
-            // Current visitors (active sessions)
-            const currentCount = parseInt(localStorage.getItem('currentVisitorCount') || '0');
-            document.getElementById('currentVisitors').textContent = currentCount;
-            
-            // Display messages
-            const messagesList = document.getElementById('messagesList');
-            if (messages.length === 0) {
-                messagesList.innerHTML = `
-                    <div class="empty-state">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        <p>No messages yet</p>
-                    </div>
-                `;
-            } else {
-                messagesList.innerHTML = messages
-                    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-                    .slice(0, 20)
-                    .map(msg => `
-                        <div class="message-item">
-                            <div class="message-header">
-                                <div class="message-info">
-                                    <h4>${escapeHtml(msg.name)}</h4>
-                                    <p>${escapeHtml(msg.email)}</p>
-                                </div>
-                                <div class="message-meta">
-                                    <p>${formatDate(msg.timestamp)}</p>
-                                    <p>ID: ${msg.visitorId}</p>
-                                </div>
-                            </div>
-                            <div class="message-content">${escapeHtml(msg.message)}</div>
-                            <div class="message-location">
-                                <span>📍 ${msg.location?.country || 'Unknown'}, ${msg.location?.city || 'Unknown'}</span>
-                                <span>🌐 IP: ${msg.location?.ip || 'Unknown'}</span>
-                            </div>
-                        </div>
-                    `).join('');
-            }
-            
-            // Display visitors
-            const visitorsList = document.getElementById('visitorsList');
-            if (visitors.length === 0) {
-                visitorsList.innerHTML = `
-                    <div class="empty-state">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                        <p>No visitors tracked yet</p>
-                    </div>
-                `;
-            } else {
-                visitorsList.innerHTML = visitors
-                    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-                    .slice(0, 30)
-                    .map(visitor => `
-                        <div class="visitor-item">
-                            <h4>Visitor ${visitor.id.substring(0, 15)}...</h4>
-                            <p>🕐 ${formatDate(visitor.timestamp)}</p>
-                            <p>📍 ${visitor.location?.country || 'Unknown'}, ${visitor.location?.city || 'Unknown'}</p>
-                            <p>🌐 IP: ${visitor.location?.ip || 'Unknown'}</p>
-                            <p>📄 ${visitor.page || '/'}</p>
-                        </div>
-                    `).join('');
-            }
-        }
-        
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        }
-        
-        function refreshData() {
-            loadData();
-        }
-        
-        // Load data on page load
-        initAndLoadData();
-        
-        // Auto-refresh every 30 seconds
-        setInterval(refreshData, 30000);
-    </script>
+    <script src="admin-dashboard.js"></script>
 </body>
 </html>
-
-

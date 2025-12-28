@@ -6,7 +6,7 @@
 }
 
 :root {
-  --primary: #6366f1;
+  --primary: #6467f2;
   --primary-dark: #4f46e5;
   --secondary: #8b5cf6;
   --accent: #ec4899;
@@ -94,7 +94,7 @@ html[dir="rtl"] .contact-item svg {
   margin-left: 0.5rem;
 }
 
-html[dir="rtl"] .contact-item > div {
+html[dir="rtl"] .contact-item>div {
   text-align: right;
 }
 
@@ -192,7 +192,8 @@ html[dir="rtl"] .form-group textarea {
 
 /* Language Toggle Button */
 .nav-menu-lang-mobile {
-  display: none; /* Hidden on desktop */
+  display: none;
+  /* Hidden on desktop */
 }
 
 .lang-toggle {
@@ -311,19 +312,23 @@ html[dir="rtl"] .form-group textarea {
 }
 
 @keyframes float-orb-1 {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1) rotate(0deg);
     opacity: 0.7;
   }
+
   25% {
     transform: translate(80px, -60px) scale(1.2) rotate(90deg);
     opacity: 0.5;
   }
+
   50% {
     transform: translate(-40px, 50px) scale(0.8) rotate(180deg);
     opacity: 0.8;
   }
+
   75% {
     transform: translate(60px, 30px) scale(1.1) rotate(270deg);
     opacity: 0.6;
@@ -331,23 +336,28 @@ html[dir="rtl"] .form-group textarea {
 }
 
 @keyframes float-orb-2 {
+
   0%,
   100% {
     transform: translate(0, 0) scale(1) rotate(0deg);
     opacity: 0.6;
   }
+
   20% {
     transform: translate(-70px, -80px) scale(1.3) rotate(72deg);
     opacity: 0.8;
   }
+
   40% {
     transform: translate(90px, -30px) scale(0.7) rotate(144deg);
     opacity: 0.4;
   }
+
   60% {
     transform: translate(-50px, 70px) scale(1.15) rotate(216deg);
     opacity: 0.7;
   }
+
   80% {
     transform: translate(30px, -50px) scale(0.9) rotate(288deg);
     opacity: 0.5;
@@ -355,15 +365,18 @@ html[dir="rtl"] .form-group textarea {
 }
 
 @keyframes float-orb-3 {
+
   0%,
   100% {
     transform: translate(-50%, -50%) scale(1) rotate(0deg);
     opacity: 0.5;
   }
+
   33% {
     transform: translate(-30%, -70%) scale(1.4) rotate(120deg);
     opacity: 0.8;
   }
+
   66% {
     transform: translate(-70%, -30%) scale(0.6) rotate(240deg);
     opacity: 0.3;
@@ -466,11 +479,13 @@ html[dir="rtl"] .form-group textarea {
 }
 
 .btn-free {
-  position: relative; /* REQUIRED */
+  position: relative;
+  /* REQUIRED */
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding-right: 2.2rem; /* optional so text doesn't overlap */
+  padding-right: 2.2rem;
+  /* optional so text doesn't overlap */
   overflow: visible !important;
 }
 
@@ -492,10 +507,12 @@ html[dir="rtl"] .form-group textarea {
 }
 
 @keyframes pulse-badge {
+
   0%,
   100% {
     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
   }
+
   50% {
     box-shadow: 0 2px 12px rgba(16, 185, 129, 0.6);
   }
@@ -521,20 +538,16 @@ html[dir="rtl"] .form-group textarea {
   overflow: hidden;
   position: relative;
   width: 100%;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
+  mask-image: linear-gradient(to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent);
+  -webkit-mask-image: linear-gradient(to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent);
 }
 
 .hero-logos-track {
@@ -678,6 +691,7 @@ html[dir="rtl"] .hero-logos-track {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
+
   100% {
     opacity: 0;
     transform: translateX(-50%) translateY(20px);
@@ -689,6 +703,7 @@ html[dir="rtl"] .hero-logos-track {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1026,10 +1041,12 @@ section {
 }
 
 @keyframes wave {
+
   0%,
   100% {
     height: 20%;
   }
+
   50% {
     height: 100%;
   }
@@ -1595,6 +1612,7 @@ section {
 .contact {
   background: var(--bg-secondary);
 }
+
 .wa-contact-icon {
   width: 50px;
   height: 50px;
@@ -1628,7 +1646,7 @@ section {
   margin-right: 0.5rem;
 }
 
-.contact-item > div {
+.contact-item>div {
   flex: 1;
 }
 
@@ -1683,33 +1701,12 @@ section {
   flex-wrap: wrap;
 }
 
-.btn-google-meeting {
-  background: white;
-  color: var(--text-primary);
-  border: 2px solid var(--border);
-  padding: 1rem 1.5rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-google-meeting svg {
-  color: var(--primary);
-}
-
-.btn-google-meeting:hover {
-  background: var(--bg-secondary);
-  border-color: var(--primary);
-  color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
-}
 
 @keyframes scroll-logos {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -1719,6 +1716,7 @@ section {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(50%);
   }
@@ -2125,9 +2123,187 @@ section {
     flex-direction: column;
   }
 
-  .btn-google-meeting {
-    width: 100%;
-    justify-content: center;
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding: 100px 0 60px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+  }
+
+  .hero-content {
+    padding: 0 1.5rem;
+  }
+
+  .video-modal-close {
+    top: -8px;
+    right: -8px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .video-modal-close svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .modal-content-body {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .modal-header-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .modal-project-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-testimonial-section {
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .testimonial-quote {
+    font-size: 3rem;
+    top: 5px;
+    left: 10px;
+  }
+
+  .modal-testimonial-text {
+    font-size: 1rem;
+  }
+
+  .technologies-section {
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .detail-block {
+    margin-bottom: 2rem;
+  }
+
+  .detail-text h4 {
+    font-size: 1.15rem;
+  }
+
+  .project-link-btn {
+    padding: 0.9rem 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mockup-container {
+    padding: 1rem;
+  }
+
+  .phone-frame {
+    width: 150px;
+    height: 300px;
+  }
+
+  .modal-mobile-close svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Mobile video container - smaller height, no black space */
+  .modal-video-container {
+    aspect-ratio: unset;
+    min-height: 0;
+    height: 250px;
+    max-height: 250px;
+  }
+
+  .modal-video-container iframe {
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-project-title {
+    font-size: 2rem;
+  }
+
+  .modal-project-category {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .project-link-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .modal-project-title {
+    font-size: 1.75rem;
+  }
+
+  .modal-project-description,
+  .detail-text {
+    font-size: 1rem;
+  }
+
+  .section-heading {
+    font-size: 1.25rem;
+  }
+
+  .testimonial-quote {
+    font-size: 4rem;
+  }
+
+  .detail-image {
+    border-radius: 12px;
+  }
+
+  .logos-track {
+    gap: 2rem;
+  }
+
+  .logo-item {
+    width: 150px;
+    height: 80px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
   }
 
   .footer-content {
@@ -2253,4 +2429,56 @@ section {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Platform Icons in Portfolio */
+.platform-icons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.platform-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.platform-icon:hover {
+  opacity: 1;
+}
+
+/* Team Member Avatar Images */
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.member-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 50%;
+}
+
+.avatar-placeholder svg {
+  width: 50%;
+  height: 50%;
+  color: white;
 }

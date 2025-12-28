@@ -723,49 +723,6 @@ if (document.readyState === 'loading') {
   initAll();
 }
 
-// Generate Google Calendar Meeting Link
-const generateGoogleCalendarLink = () => {
-  // Get current date and time, add 1 day for tomorrow at 10 AM
-  const now = new Date();
-  const tomorrow = new Date(now);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  tomorrow.setHours(10, 0, 0, 0);
-
-  const endTime = new Date(tomorrow);
-  endTime.setHours(11, 0, 0, 0);
-
-  // Format dates for Google Calendar (YYYYMMDDTHHmmssZ)
-  const formatDate = (date) => {
-    const year = date.getUTCFullYear();
-    const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-    const day = String(date.getUTCDate()).padStart(2, "0");
-    const hours = String(date.getUTCHours()).padStart(2, "0");
-    const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-    const seconds = String(date.getUTCSeconds()).padStart(2, "0");
-    return `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
-  };
-
-  const startDate = formatDate(tomorrow);
-  const endDate = formatDate(endTime);
-
-  const title = encodeURIComponent("Free Consultation with Innovate Studio");
-  const details = encodeURIComponent(
-    "Book a free consultation to discuss your project needs, brainstorm ideas, and get a detailed pricing quote for your project development."
-  );
-  const location = encodeURIComponent(
-    "Online Meeting (Link will be sent via email)"
-  );
-
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
-};
-
-// Set up Google Calendar button
-document.addEventListener("DOMContentLoaded", () => {
-  const googleMeetingBtn = document.getElementById("googleMeetingBtn");
-  if (googleMeetingBtn) {
-    googleMeetingBtn.href = generateGoogleCalendarLink();
-  }
-});
 
 // Visitor tracking
 let messages = JSON.parse(localStorage.getItem("portfolioMessages") || "[]");
