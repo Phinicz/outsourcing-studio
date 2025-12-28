@@ -28,10 +28,10 @@ function applyTranslations() {
     console.error('Translations object not found! Make sure translations.js is loaded before script.js');
     return;
   }
-  
+
   const lang = currentLang;
   console.log('Applying translations for language:', lang);
-  
+
   // Update all elements with data-translate attribute
   let translatedCount = 0;
   document.querySelectorAll('[data-translate]').forEach(element => {
@@ -45,7 +45,7 @@ function applyTranslations() {
     }
   });
   console.log('Translated', translatedCount, 'text elements');
-  
+
   // Update all placeholders with data-translate-placeholder attribute
   let placeholderCount = 0;
   document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
@@ -59,11 +59,11 @@ function applyTranslations() {
     }
   });
   console.log('Translated', placeholderCount, 'placeholder elements');
-  
+
   // Update language toggle buttons text (both desktop and mobile)
   const langToggle = document.getElementById('langToggle');
   const langToggleMobile = document.getElementById('langToggleMobile');
-  
+
   if (langToggle) {
     const langText = langToggle.querySelector('.lang-text');
     if (langText) {
@@ -73,7 +73,7 @@ function applyTranslations() {
   } else {
     console.warn('Desktop language toggle button not found');
   }
-  
+
   if (langToggleMobile) {
     const langTextMobile = langToggleMobile.querySelector('.lang-text');
     if (langTextMobile) {
@@ -83,14 +83,14 @@ function applyTranslations() {
   } else {
     console.warn('Mobile language toggle button not found');
   }
-  
+
   // Update body font family for Arabic
   if (lang === 'ar') {
     document.body.style.fontFamily = "'Cairo', 'Inter', sans-serif";
   } else {
     document.body.style.fontFamily = "'Inter', sans-serif";
   }
-  
+
   console.log('Translation complete!');
 }
 
@@ -102,10 +102,10 @@ function toggleLanguage() {
   document.documentElement.lang = currentLang;
   document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
   applyTranslations();
-  
+
   // Reinitialize testimonial slider to update direction
   initTestimonialSlider();
-  
+
   // Close mobile menu if open
   const navMenu = document.querySelector('.nav-menu');
   const navToggle = document.querySelector('.nav-toggle');
@@ -113,7 +113,7 @@ function toggleLanguage() {
     navMenu.classList.remove('active');
     navToggle.classList.remove('active');
   }
-  
+
   console.log('Language toggled to', currentLang);
 }
 
@@ -296,17 +296,17 @@ projectData = {
     technologies: ["Unity", "Photon Engine", "C#", "Node.js", "PostgreSQL", "AWS"],
     details: [
       {
-        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+        image: "https://play-lh.googleusercontent.com/mpFiwK_dswvIl0C3tBXpukx6d0sUoBsrQh3BJldstRDYCiKJGKSeM8VaEImFaSEvz5o=w5120-h2880-rw",
         title: "Strategic Team-Based Combat",
         text: "Experience intense 5v5 battles where teamwork and strategy are paramount. Each hero features unique abilities and roles - from devastating damage dealers to stalwart defenders. Coordinate with your team, execute perfectly timed combos, and outmaneuver opponents in dynamic arena environments that reward skill and tactical thinking."
       },
+      // {
+      //   image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      //   title: "Diverse Hero Roster",
+      //   text: "Choose from a growing roster of heroes, each with distinct personalities, backstories, and gameplay mechanics. Whether you prefer aggressive assassins, supportive healers, or tactical marksmen, there's a hero that matches your playstyle. Regular updates introduce new heroes and balance changes to keep the meta fresh and exciting."
+      // },
       {
-        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-        title: "Diverse Hero Roster",
-        text: "Choose from a growing roster of heroes, each with distinct personalities, backstories, and gameplay mechanics. Whether you prefer aggressive assassins, supportive healers, or tactical marksmen, there's a hero that matches your playstyle. Regular updates introduce new heroes and balance changes to keep the meta fresh and exciting."
-      },
-      {
-        image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+        image: "https://play-lh.googleusercontent.com/jGJOnxoi8zvt6AAHuuoIV9ymBsJAnuu6CtAc9Zx9BKXNVbsu9wpwNoinXPYqZGClPyE=w5120-h2880-rw",
         title: "Competitive Ranked System",
         text: "Climb the ranks in our competitive ladder system. From Bronze to Legendary, prove your skills against players worldwide. Seasonal rewards, leaderboards, and tournaments provide endless competitive opportunities. Our advanced matchmaking ensures fair, balanced matches that challenge you to improve with every game."
       }
@@ -467,7 +467,7 @@ const initVideoModal = () => {
           document.getElementById("modalTitle").textContent = data.title;
           document.getElementById("modalDescription").textContent =
             data.description;
-          
+
           // Update mobile title
           const modalMobileTitle = document.getElementById("modalMobileTitle");
           if (modalMobileTitle) {
@@ -507,8 +507,8 @@ const initVideoModal = () => {
           const techContainer = document.getElementById("projectTechnologies");
           techContainer.innerHTML = data.technologies
             ? data.technologies
-                .map((tech) => `<span class="tech-tag">${tech}</span>`)
-                .join("")
+              .map((tech) => `<span class="tech-tag">${tech}</span>`)
+              .join("")
             : "";
 
           // Populate project details with images and text
@@ -548,17 +548,17 @@ const initVideoModal = () => {
 
   // Close modal handlers (both desktop and mobile)
   const closeModalMobile = document.getElementById("closeModalMobile");
-  
+
   const closeModalHandler = () => {
     videoModal.classList.remove("active");
     modalVideo.src = "";
     document.body.style.overflow = "";
   };
-  
+
   if (closeModal) {
     closeModal.addEventListener("click", closeModalHandler);
   }
-  
+
   if (closeModalMobile) {
     closeModalMobile.addEventListener("click", closeModalHandler);
   }
@@ -589,19 +589,19 @@ const initVideoModal = () => {
 
 // Ensure homepage YouTube embeds have correct origin and referrer policy
 const fixHomepageYouTubeEmbeds = () => {
- const origin = encodeURIComponent(window.location.origin);
- document.querySelectorAll('iframe.portfolio-video').forEach((iframe) => {
-   try {
-     const videoId = iframe.getAttribute('data-video-id');
-     if (!videoId) return;
-     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-     const params = `autoplay=1&loop=1&playlist=${videoId}&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1&origin=${origin}`;
-     const newSrc = `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
-     if (iframe.src !== newSrc) iframe.src = newSrc;
-   } catch (e) {
-     // no-op
-   }
- });
+  const origin = encodeURIComponent(window.location.origin);
+  document.querySelectorAll('iframe.portfolio-video').forEach((iframe) => {
+    try {
+      const videoId = iframe.getAttribute('data-video-id');
+      if (!videoId) return;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      const params = `autoplay=1&loop=1&playlist=${videoId}&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1&origin=${origin}`;
+      const newSrc = `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
+      if (iframe.src !== newSrc) iframe.src = newSrc;
+    } catch (e) {
+      // no-op
+    }
+  });
 };
 
 // Testimonial Slider Auto-Swipe
@@ -618,19 +618,19 @@ const initTestimonialSlider = () => {
   const updateSlider = (slideIndex) => {
     // Check if RTL
     const isRTL = document.documentElement.dir === 'rtl';
-    
+
     // Use positive translateX for RTL, negative for LTR
     if (isRTL) {
       track.style.transform = `translateX(${slideIndex * 100}%)`;
     } else {
       track.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
-    
+
     // Update active dot
     dots.forEach((dot, index) => {
       dot.classList.toggle('active', index === slideIndex);
     });
-    
+
     currentTestimonialSlide = slideIndex;
   };
 
@@ -665,7 +665,7 @@ const initTestimonialSlider = () => {
 
   // Start auto-swipe
   startAutoSwipe();
-  
+
   // Initial update to set correct position
   updateSlider(0);
 };
@@ -674,44 +674,44 @@ const initTestimonialSlider = () => {
 function initAll() {
   console.log('=== Initializing website ===');
   console.log('Document ready state:', document.readyState);
-  
+
   // Initialize translations
   console.log('1. Initializing translations...');
   applyTranslations();
-  
+
   // Initialize language toggle (both desktop and mobile)
   console.log('2. Setting up language toggle...');
   const langToggle = document.getElementById('langToggle');
   const langToggleMobile = document.getElementById('langToggleMobile');
-  
+
   if (langToggle) {
     langToggle.addEventListener('click', toggleLanguage);
     console.log('✓ Desktop language toggle button found and connected');
   } else {
     console.error('✗ Desktop language toggle button NOT found!');
   }
-  
+
   if (langToggleMobile) {
     langToggleMobile.addEventListener('click', toggleLanguage);
     console.log('✓ Mobile language toggle button found and connected');
   } else {
     console.error('✗ Mobile language toggle button NOT found!');
   }
-  
+
   // Initialize navigation
   console.log('3. Initializing navigation...');
   initNavigation();
-  
+
   // Initialize smooth scroll
   console.log('4. Initializing smooth scroll...');
   initSmoothScroll();
-  
+
   // Initialize video features
   console.log('5. Initializing video features...');
   fixHomepageYouTubeEmbeds();
   initVideoModal();
   initTestimonialSlider();
-  
+
   console.log('=== Initialization complete ===');
 }
 
@@ -786,7 +786,7 @@ const saveVisitorData = async (visitorId, location) => {
       const { data, error } = await supabase
         .from('visitors')
         .insert([visitorData]);
-      
+
       if (error) {
         console.error('Error saving visitor to Supabase:', error);
         // Fallback to localStorage
@@ -891,7 +891,7 @@ if (contactForm) {
           const { data, error } = await supabase
             .from('messages')
             .insert([messageData]);
-          
+
           if (error) {
             console.error('Error saving message to Supabase:', error);
             // Fallback to localStorage

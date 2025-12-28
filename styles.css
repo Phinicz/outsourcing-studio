@@ -2534,3 +2534,10 @@ section {
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
+.video-container {
+  width: 100%;
+  height: 250px;
+  /* Set the desired height here */
+  position: relative;
+}
