@@ -81,24 +81,24 @@ const translations = {
       subtitle: "Meet the creative minds behind our success",
       members: [
         {
-          name: "Sarah Johnson",
-          role: "Creative Director",
-          bio: "Visionary leader with 10+ years of experience in digital design"
+          name: "Mohamed Fakhry",
+          role: "Full Stack Web Developer",
+          bio: "Full-stack web developer with proficiency in threejs, React and awesome frontent animations"
         },
         {
-          name: "Michael Chen",
-          role: "Lead Developer",
-          bio: "Full-stack expert passionate about performance and clean code"
+          name: "solymagu",
+          role: "UX/UI designer",
+          bio: "Fantastic and creative app and game designer"
         },
         {
-          name: "Emily Rodriguez",
-          role: "UX Designer",
-          bio: "User experience specialist focused on intuitive interfaces"
+          name: "Vinn",
+          role: "Lead Game Developer",
+          bio: "One of the best in the world in the game development industry"
         },
         {
-          name: "David Park",
-          role: "Marketing Lead",
-          bio: "Growth strategist driving brand awareness and engagement"
+          name: "Mark Bruce",
+          role: "Game Developer",
+          bio: "Unity game developer with fantastic output"
         }
       ]
     },
