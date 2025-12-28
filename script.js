@@ -469,10 +469,10 @@ const initVideoModal = () => {
             data.description;
 
           // Update mobile title
-          const modalMobileTitle = document.getElementById("modalMobileTitle");
-          if (modalMobileTitle) {
-            modalMobileTitle.textContent = data.title;
-          }
+          // const modalMobileTitle = document.getElementById("modalMobileTitle");
+          // if (modalMobileTitle) {
+          //   modalMobileTitle.textContent = data.title;
+          // }
 
           // Update testimonial section
           const testimonialSection = document.getElementById("testimonialSection");
