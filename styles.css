@@ -1662,6 +1662,15 @@ section {
   color: var(--text-secondary);
 }
 
+/* make contact items have this underline line too on hover */
+.contact-item p:hover {
+  color: var(--primary);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -2509,4 +2518,19 @@ section {
 .info-img {
   width: 14px;
   height: 14px;
+}
+
+.btn-google-meeting {
+  /* make it flex and make them items center */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-google-meeting:hover {
+  /* color: var(--primary-dark); */
+  text-decoration: underline;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
