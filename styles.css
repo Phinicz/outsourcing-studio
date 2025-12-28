@@ -130,7 +130,7 @@ html[dir="rtl"] .form-group textarea {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  padding: 1rem 0;
+  padding-bottom: 1rem;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
@@ -139,6 +139,7 @@ html[dir="rtl"] .form-group textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1rem;
 }
 
 .nav-brand {
@@ -183,7 +184,7 @@ html[dir="rtl"] .form-group textarea {
 }
 
 .nav-menu a:hover {
-  color: var(--text-primary);
+  color: var(--primary);
 }
 
 .nav-menu a:hover::after {
@@ -2481,4 +2482,31 @@ section {
   width: 50%;
   height: 50%;
   color: white;
+}
+
+/* .navInfo should be flex with phone number and email side by side purble bg (our pruble) white text very small text */
+.navInfo {
+  display: flex;
+  gap: 1rem;
+  padding: 0.3rem 2rem;
+  background-color: var(--primary);
+}
+
+.navInfo a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.navInfo a:hover {
+  /* color: var(--primary-dark); */
+  text-decoration: underline;
+}
+
+.info-img {
+  width: 14px;
+  height: 14px;
 }
