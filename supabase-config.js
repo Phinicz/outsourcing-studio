@@ -3,7 +3,7 @@ const SUPABASE_URL = "https://vxmffyxfqxapbrrmpfhd.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_AdmCIzS3a27ENOLf69-e2g_XZFYH-IX";
 
 // Initialize Supabase client (we'll load this from CDN)
-let supabase = null;
+let supabaseClient = null;
 
 // Initialize Supabase
 const initSupabase = () => {
@@ -14,12 +14,12 @@ const initSupabase = () => {
     return null;
   }
 
-  if (!supabase) {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  if (!supabaseClient) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     console.log("Supabase client initialized");
   }
 
-  return supabase;
+  return supabaseClient;
 };
 
 // Wait for Supabase to be available
@@ -46,5 +46,5 @@ const waitForSupabase = () => {
 };
 
 // Export for use in other files
-window.getSupabase = () => supabase || initSupabase();
+window.getSupabase = () => supabaseClient || initSupabase();
 window.waitForSupabase = waitForSupabase;

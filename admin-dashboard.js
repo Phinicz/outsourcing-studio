@@ -1,24 +1,23 @@
 // Admin Dashboard JavaScript
-let supabaseClient = null;
 let currentTab = 'insights';
 let messageFilter = 'all'; // 'all', 'unread', 'read'
 
 // Tab switching
 function switchTab(event, tabName) {
     currentTab = tabName;
-    
+
     // Update tab buttons
     document.querySelectorAll('.tab-btn').forEach(tab => {
         tab.classList.remove('active');
     });
     event.target.classList.add('active');
-    
+
     // Update tab content
     document.querySelectorAll('.tab-content').forEach(content => {
         content.classList.remove('active');
     });
     document.getElementById(tabName + '-tab').classList.add('active');
-    
+
     // Load data for specific tabs if needed
     if (tabName === 'insights') loadInsightsData();
     if (tabName === 'funnel') loadFunnelData();
@@ -32,8 +31,8 @@ function switchTab(event, tabName) {
 
 // Initialize Supabase and load data
 async function initAndLoadData() {
-    supabaseClient = await window.waitForSupabase();
-    if (supabaseClient) {
+    const client = await window.waitForSupabase();
+    if (client) {
         await loadData();
     } else {
         console.error('Failed to initialize Supabase');
@@ -42,6 +41,7 @@ async function initAndLoadData() {
 }
 
 async function loadData() {
+    const supabaseClient = window.getSupabase();
     if (!supabaseClient) {
         loadLocalStorageData();
         return;
@@ -90,37 +90,37 @@ async function loadData() {
 // Update hero stats with meaningful metrics
 function updateHeroStats() {
     if (!window.analyticsData) return;
-    
+
     const { events, sectionViews, visitors, messages } = window.analyticsData;
-    
+
     // 1. Unread Messages
     const unreadCount = messages.filter(m => !m.is_read).length;
     document.getElementById('unreadMessages').textContent = unreadCount;
     document.getElementById('unreadTrend').textContent = `${messages.length} total messages`;
-    
+
     // 2. Conversion Rate
     const totalVisitors = new Set(visitors.map(v => v.visitor_id)).size;
     const conversionRate = totalVisitors > 0 ? ((conversions / totalVisitors) * 100).toFixed(1) : 0;
     document.getElementById('conversionRate').textContent = conversionRate + '%';
-    
+
     // 3. Portfolio Engagement
     const portfolioViewers = new Set(sectionViews.filter(s => s.section_name === 'portfolio').map(s => s.visitor_id)).size;
     const portfolioRate = totalVisitors > 0 ? ((portfolioViewers / totalVisitors) * 100).toFixed(0) : 0;
     document.getElementById('portfolioEngagement').textContent = portfolioRate + '%';
     document.getElementById('portfolioTrend').textContent = `${portfolioViewers} of ${totalVisitors} visitors`;
-    
+
     // 4. Drop-off Point (most critical)
     const heroViewers = new Set(sectionViews.filter(s => s.section_name === 'hero').map(s => s.visitor_id)).size;
     const contactViewers = new Set(sectionViews.filter(s => s.section_name === 'contact').map(s => s.visitor_id)).size;
-    
+
     let dropOffPoint = 'Unknown';
     let dropOffTrend = '';
-    
+
     if (heroViewers > 0) {
         const heroToPortfolio = portfolioViewers / heroViewers;
         const portfolioToContact = portfolioViewers > 0 ? contactViewers / portfolioViewers : 0;
         const contactToConversion = contactViewers > 0 ? conversions / contactViewers : 0;
-        
+
         if (heroToPortfolio < 0.5) {
             dropOffPoint = 'Hero';
             dropOffTrend = `${((1 - heroToPortfolio) * 100).toFixed(0)}% leave before portfolio`;
@@ -135,7 +135,7 @@ function updateHeroStats() {
             dropOffTrend = 'Strong funnel performance';
         }
     }
-    
+
     document.getElementById('dropOffPoint').textContent = dropOffPoint;
     document.getElementById('dropOffTrend').textContent = dropOffTrend;
 }
@@ -143,12 +143,12 @@ function updateHeroStats() {
 // Load insights data with recommendations
 function loadInsightsData() {
     if (!window.analyticsData) return;
-    
+
     const { events, sectionViews, scrollDepth, visitors } = window.analyticsData;
-    
+
     // Generate AI-powered recommendations
     const recommendations = generateRecommendations();
-    
+
     const recommendationsDiv = document.getElementById('recommendations');
     if (recommendations.length === 0) {
         recommendationsDiv.innerHTML = `
@@ -174,14 +174,14 @@ function loadInsightsData() {
             </div>
         `).join('');
     }
-    
+
     // Conversion Performance
     const conversions = events.filter(e => e.event_type === 'form_submit').length;
     const totalVisitors = new Set(visitors.map(v => v.visitor_id)).size;
     const contactViewers = new Set(sectionViews.filter(s => s.section_name === 'contact').map(s => s.visitor_id)).size;
     const conversionRate = totalVisitors > 0 ? ((conversions / totalVisitors) * 100).toFixed(1) : 0;
     const contactConversionRate = contactViewers > 0 ? ((conversions / contactViewers) * 100).toFixed(1) : 0;
-    
+
     document.getElementById('conversionStats').innerHTML = `
         <div style="padding: 1rem;">
             <div style="margin-bottom: 1.5rem;">
@@ -200,12 +200,12 @@ function loadInsightsData() {
             </div>
         </div>
     `;
-    
+
     // Portfolio Performance
     const portfolioClicks = events.filter(e => e.event_category === 'portfolio').length;
     const videoPlays = events.filter(e => e.event_type === 'video_play').length;
     const portfolioViewers = new Set(sectionViews.filter(s => s.section_name === 'portfolio').map(s => s.visitor_id)).size;
-    
+
     // Find most clicked portfolio item
     const portfolioItems = {};
     events.filter(e => e.event_category === 'portfolio' && e.event_label).forEach(e => {
@@ -213,7 +213,7 @@ function loadInsightsData() {
         portfolioItems[e.event_label]++;
     });
     const topPortfolioItem = Object.entries(portfolioItems).sort((a, b) => b[1] - a[1])[0];
-    
+
     document.getElementById('portfolioStats').innerHTML = `
         <div style="padding: 1rem;">
             <div style="margin-bottom: 1.5rem;">
@@ -235,14 +235,14 @@ function loadInsightsData() {
             ` : ''}
         </div>
     `;
-    
+
     // Contact Method Preference
     const whatsappClicks = events.filter(e => e.event_label === 'whatsapp_click').length;
     const phoneClicks = events.filter(e => e.event_label === 'phone_click').length;
     const emailClicks = events.filter(e => e.event_label === 'email_click').length;
-    
+
     const totalContactClicks = whatsappClicks + phoneClicks + emailClicks;
-    
+
     document.getElementById('contactMethodStats').innerHTML = `
         <div style="padding: 1rem;">
             ${totalContactClicks === 0 ? `
@@ -286,18 +286,18 @@ function loadInsightsData() {
 // Generate smart recommendations
 function generateRecommendations() {
     if (!window.analyticsData) return [];
-    
+
     const { events, sectionViews, scrollDepth, visitors } = window.analyticsData;
     const recommendations = [];
-    
+
     const totalVisitors = new Set(visitors.map(v => v.visitor_id)).size;
     if (totalVisitors < 5) return []; // Need minimum data
-    
+
     const heroViewers = new Set(sectionViews.filter(s => s.section_name === 'hero').map(s => s.visitor_id)).size;
     const portfolioViewers = new Set(sectionViews.filter(s => s.section_name === 'portfolio').map(s => s.visitor_id)).size;
     const contactViewers = new Set(sectionViews.filter(s => s.section_name === 'contact').map(s => s.visitor_id)).size;
     const conversions = events.filter(e => e.event_type === 'form_submit').length;
-    
+
     // Check Hero → Portfolio conversion
     if (heroViewers > 0 && portfolioViewers / heroViewers < 0.5) {
         recommendations.push({
@@ -307,7 +307,7 @@ function generateRecommendations() {
             action: 'ACTION: Strengthen your value proposition or CTA button'
         });
     }
-    
+
     // Check Portfolio → Contact conversion
     if (portfolioViewers > 0 && contactViewers / portfolioViewers < 0.3) {
         recommendations.push({
@@ -317,7 +317,7 @@ function generateRecommendations() {
             action: 'ACTION: Add "Get a Quote" buttons after portfolio items'
         });
     }
-    
+
     // Check Contact → Conversion rate
     if (contactViewers > 0 && conversions / contactViewers < 0.1) {
         recommendations.push({
@@ -327,7 +327,7 @@ function generateRecommendations() {
             action: 'ACTION: Remove unnecessary fields or add trust signals'
         });
     }
-    
+
     // Check scroll depth
     const reached75 = new Set(scrollDepth.filter(s => s.depth_percentage === 75).map(s => s.visitor_id)).size;
     if (totalVisitors > 0 && reached75 / totalVisitors < 0.4) {
@@ -338,7 +338,7 @@ function generateRecommendations() {
             action: 'ACTION: Prioritize key information above the fold'
         });
     }
-    
+
     // Check for good performance
     if (totalVisitors > 0 && conversions / totalVisitors > 0.05) {
         recommendations.push({
@@ -348,25 +348,25 @@ function generateRecommendations() {
             action: 'TIP: Monitor which portfolio items lead to most conversions'
         });
     }
-    
+
     return recommendations.slice(0, 3); // Max 3 recommendations
 }
 
 // Load overview data (old function - keeping for compatibility)
 function loadOverviewData() {
     if (!window.analyticsData) return;
-    
+
     const { events, sectionViews } = window.analyticsData;
-    
+
     // Calculate metrics
     const ctaClicks = events.filter(e => e.event_category === 'cta').length;
     const portfolioClicks = events.filter(e => e.event_category === 'portfolio').length;
     const contactClicks = events.filter(e => e.event_category === 'contact' && e.event_type === 'click').length;
     const formSubmissions = events.filter(e => e.event_type === 'form_submit').length;
-    
+
     const uniquePortfolioViewers = new Set(sectionViews.filter(s => s.section_name === 'portfolio').map(s => s.visitor_id)).size;
     const uniqueContactViewers = new Set(sectionViews.filter(s => s.section_name === 'contact').map(s => s.visitor_id)).size;
-    
+
     // Display overview metrics
     const overviewMetrics = document.getElementById('overviewMetrics');
     overviewMetrics.innerHTML = `
@@ -391,7 +391,7 @@ function loadOverviewData() {
             <div class="metric-subtext">Form submissions (goal!)</div>
         </div>
     `;
-    
+
     // Top clicks
     const clickEvents = events.filter(e => e.event_type === 'click');
     const clickCounts = {};
@@ -403,11 +403,11 @@ function loadOverviewData() {
         clickCounts[key].count++;
         clickCounts[key].visitors.add(e.visitor_id);
     });
-    
+
     const topClicks = Object.values(clickCounts)
         .sort((a, b) => b.count - a.count)
         .slice(0, 10);
-    
+
     const topClicksList = document.getElementById('topClicksList');
     if (topClicks.length === 0) {
         topClicksList.innerHTML = `
@@ -436,26 +436,26 @@ function loadOverviewData() {
 // Load funnel data
 function loadFunnelData() {
     if (!window.analyticsData) return;
-    
+
     const { sectionViews, events } = window.analyticsData;
-    
+
     // Calculate funnel steps
     const heroViewers = new Set(sectionViews.filter(s => s.section_name === 'hero').map(s => s.visitor_id));
     const portfolioViewers = new Set(sectionViews.filter(s => s.section_name === 'portfolio').map(s => s.visitor_id));
     const contactViewers = new Set(sectionViews.filter(s => s.section_name === 'contact').map(s => s.visitor_id));
     const formSubmitters = new Set(events.filter(e => e.event_type === 'form_submit').map(e => e.visitor_id));
-    
+
     const step1 = heroViewers.size;
     const step2 = portfolioViewers.size;
     const step3 = contactViewers.size;
     const step4 = formSubmitters.size;
-    
+
     const rate2 = step1 > 0 ? ((step2 / step1) * 100).toFixed(1) : 0;
     const rate3 = step2 > 0 ? ((step3 / step2) * 100).toFixed(1) : 0;
     const rate4 = step3 > 0 ? ((step4 / step3) * 100).toFixed(1) : 0;
-    
+
     const funnelContainer = document.getElementById('funnelContainer');
-    
+
     if (step1 === 0) {
         funnelContainer.innerHTML = `
             <div class="empty-state">
@@ -466,7 +466,7 @@ function loadFunnelData() {
         `;
         return;
     }
-    
+
     funnelContainer.innerHTML = `
         <div class="funnel-step step-1" style="--progress: 100%;">
             <div class="funnel-content">
@@ -529,16 +529,16 @@ function loadFunnelData() {
 // Load engagement data
 function loadEngagementData() {
     if (!window.analyticsData) return;
-    
+
     const { events, sectionViews, scrollDepth, visitors } = window.analyticsData;
-    
+
     // User Journey Visualization
     const totalVisitors = new Set(visitors.map(v => v.visitor_id)).size;
     const heroViewers = new Set(sectionViews.filter(s => s.section_name === 'hero').map(s => s.visitor_id)).size;
     const portfolioViewers = new Set(sectionViews.filter(s => s.section_name === 'portfolio').map(s => s.visitor_id)).size;
     const contactViewers = new Set(sectionViews.filter(s => s.section_name === 'contact').map(s => s.visitor_id)).size;
     const conversions = events.filter(e => e.event_type === 'form_submit').length;
-    
+
     // Calculate average time per section
     const sections = ['hero', 'portfolio', 'testimonials', 'team', 'contact'];
     const sectionTimes = sections.map(section => {
@@ -547,7 +547,7 @@ function loadEngagementData() {
         const viewers = new Set(sectionViews.filter(s => s.section_name === section).map(s => s.visitor_id)).size;
         return { section, avgTime, viewers };
     });
-    
+
     document.getElementById('journeyVisualization').innerHTML = `
         <div style="padding: 1.5rem;">
             ${sectionTimes.map(stat => `
@@ -567,7 +567,7 @@ function loadEngagementData() {
             `).join('')}
         </div>
     `;
-    
+
     // What's Working
     const clickEvents = events.filter(e => e.event_type === 'click');
     const clickCounts = {};
@@ -575,9 +575,9 @@ function loadEngagementData() {
         if (!clickCounts[e.event_label]) clickCounts[e.event_label] = 0;
         clickCounts[e.event_label]++;
     });
-    
+
     const topClicks = Object.entries(clickCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
-    
+
     document.getElementById('whatWorking').innerHTML = `
         <div style="padding: 1rem;">
             ${topClicks.length === 0 ? `
@@ -596,10 +596,10 @@ function loadEngagementData() {
             `).join('')}
         </div>
     `;
-    
+
     // What Needs Attention
     const issues = [];
-    
+
     // Check scroll depth
     const reached50 = new Set(scrollDepth.filter(s => s.depth_percentage === 50).map(s => s.visitor_id)).size;
     if (totalVisitors > 0 && reached50 / totalVisitors < 0.6) {
@@ -609,7 +609,7 @@ function loadEngagementData() {
             severity: 'high'
         });
     }
-    
+
     // Check portfolio engagement
     if (totalVisitors > 0 && portfolioViewers / totalVisitors < 0.5) {
         issues.push({
@@ -618,7 +618,7 @@ function loadEngagementData() {
             severity: 'critical'
         });
     }
-    
+
     // Check contact form conversion
     if (contactViewers > 0 && conversions / contactViewers < 0.15) {
         issues.push({
@@ -627,7 +627,7 @@ function loadEngagementData() {
             severity: 'high'
         });
     }
-    
+
     // Check if portfolio has low engagement time
     const portfolioTime = sectionTimes.find(s => s.section === 'portfolio');
     if (portfolioTime && portfolioTime.avgTime < 10 && portfolioTime.viewers > 5) {
@@ -637,7 +637,7 @@ function loadEngagementData() {
             severity: 'medium'
         });
     }
-    
+
     document.getElementById('whatNotWorking').innerHTML = `
         <div style="padding: 1rem;">
             ${issues.length === 0 ? `
@@ -653,7 +653,7 @@ function loadEngagementData() {
             `).join('')}
         </div>
     `;
-    
+
     // Top Clicks Visualization
     document.getElementById('topClicksViz').innerHTML = `
         <div style="padding: 1.5rem;">
@@ -664,9 +664,9 @@ function loadEngagementData() {
                     <div class="empty-text">User clicks will appear here</div>
                 </div>
             ` : topClicks.map(click => {
-                const maxClicks = topClicks[0][1];
-                const percentage = (click[1] / maxClicks * 100);
-                return `
+        const maxClicks = topClicks[0][1];
+        const percentage = (click[1] / maxClicks * 100);
+        return `
                     <div style="margin-bottom: 1.5rem;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                             <span style="font-weight: 600; color: var(--text-primary);">${escapeHtml(click[0])}</span>
@@ -677,7 +677,7 @@ function loadEngagementData() {
                         </div>
                     </div>
                 `;
-            }).join('')}
+    }).join('')}
         </div>
     `;
 }
@@ -685,13 +685,13 @@ function loadEngagementData() {
 // Filter messages
 function filterMessages(filter) {
     messageFilter = filter;
-    
+
     // Update button states
     document.getElementById('filterAll').classList.remove('active');
     document.getElementById('filterUnread').classList.remove('active');
     document.getElementById('filterRead').classList.remove('active');
     document.getElementById('filter' + filter.charAt(0).toUpperCase() + filter.slice(1)).classList.add('active');
-    
+
     // Filter and display
     if (window.analyticsData && window.analyticsData.messages) {
         let filtered = window.analyticsData.messages;
@@ -701,7 +701,7 @@ function filterMessages(filter) {
             filtered = filtered.filter(m => m.is_read);
         }
         displayMessages(filtered);
-        
+
         // Update subtitle
         const subtitle = document.getElementById('messagesSubtitle');
         if (filter === 'all') {
@@ -717,54 +717,52 @@ function filterMessages(filter) {
 // Mark message as read
 async function markMessageAsRead(messageId) {
     console.log('Marking message as read:', messageId);
-    
+
+    const supabaseClient = window.getSupabase();
     if (!supabaseClient) {
-        console.error('Supabase client not initialized');
-        alert('Cannot mark as read: Database connection not available');
-        return;
     }
-    
+
     // Prevent multiple clicks
     const message = window.analyticsData.messages.find(m => m.id === messageId);
     if (!message) {
         console.error('Message not found:', messageId);
         return;
     }
-    
+
     if (message.is_read) {
         console.log('Message already read');
         return;
     }
-    
+
     try {
         console.log('Updating message in Supabase...');
         const { data, error } = await supabaseClient
             .from('messages')
-            .update({ 
+            .update({
                 is_read: true,
                 read_at: new Date().toISOString()
             })
             .eq('id', messageId)
             .select();
-        
+
         if (error) {
             console.error('Supabase error:', error);
             alert('Error marking message as read: ' + error.message);
             return;
         }
-        
+
         console.log('Message marked as read successfully:', data);
-        
+
         // Update local data
         message.is_read = true;
         message.read_at = new Date().toISOString();
-        
+
         // Refresh display
         updateHeroStats();
         filterMessages(messageFilter);
-        
+
         console.log('UI updated');
-        
+
     } catch (error) {
         console.error('Error marking message as read:', error);
         alert('Unexpected error: ' + error.message);
@@ -829,7 +827,7 @@ function displayMessages(messages) {
 function loadLocalStorageData() {
     const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
     const visitors = JSON.parse(localStorage.getItem('portfolioVisitors') || '[]');
-    
+
     window.analyticsData = {
         messages: messages,
         visitors: visitors,
@@ -837,14 +835,20 @@ function loadLocalStorageData() {
         sectionViews: [],
         scrollDepth: []
     };
-    
+
     // Update hero stats
-    document.getElementById('totalConversions').textContent = messages.length;
-    document.getElementById('conversionRate').textContent = '0%';
-    document.getElementById('portfolioEngagement').textContent = '0%';
-    document.getElementById('dropOffPoint').textContent = 'No Data';
-    document.getElementById('dropOffTrend').textContent = 'Collecting data...';
-    
+    const unreadMessages = document.getElementById('unreadMessages');
+    const conversionRate = document.getElementById('conversionRate');
+    const portfolioEngagement = document.getElementById('portfolioEngagement');
+    const dropOffPoint = document.getElementById('dropOffPoint');
+    const dropOffTrend = document.getElementById('dropOffTrend');
+
+    if (unreadMessages) unreadMessages.textContent = messages.length;
+    if (conversionRate) conversionRate.textContent = '0%';
+    if (portfolioEngagement) portfolioEngagement.textContent = '0%';
+    if (dropOffPoint) dropOffPoint.textContent = 'No Data';
+    if (dropOffTrend) dropOffTrend.textContent = 'Collecting data...';
+
     displayMessages(messages);
     loadInsightsData();
 }
