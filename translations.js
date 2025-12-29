@@ -10,7 +10,7 @@ const translations = {
     },
     // Hero Section
     hero: {
-      brand: "Innovate Studio",
+      brand: "Seamless Outsource",
       titleLine1: "We Create",
       titleLine2: "Digital Excellence",
       subtitle: "Transforming ideas into stunning digital experiences that drive results",
@@ -59,19 +59,19 @@ const translations = {
       items: [
         {
           name: "Alex Martinez",
-          text: "Innovate Studio brought our MOBA vision to life with incredible attention to detail. The gameplay is smooth, the mechanics are balanced, and our player community has grown exponentially. They exceeded every expectation and delivered a truly competitive gaming experience."
+          text: "Seamless Outsource brought our MOBA vision to life with incredible attention to detail. The gameplay is smooth, the mechanics are balanced, and our player community has grown exponentially. They exceeded every expectation and delivered a truly competitive gaming experience."
         },
         {
           name: "Emma Rodriguez",
-          text: "The flying mechanics in Crypto Blasters are absolutely phenomenal! Innovate Studio created something truly special - the controls are intuitive yet deep, and the aerial combat is unlike anything else on the market. Our players can't get enough of the drone customization and competitive dogfights."
+          text: "The flying mechanics in Crypto Blasters are absolutely phenomenal! Seamless Outsource created something truly special - the controls are intuitive yet deep, and the aerial combat is unlike anything else on the market. Our players can't get enough of the drone customization and competitive dogfights."
         },
         {
           name: "Marcus Chen",
-          text: "Innovate Studio captured the essence of what makes racing games great. Metaforza's graphics are stunning, the physics feel authentic, and the sense of speed is incredible. Our racing community has embraced it wholeheartedly, and the competitive scene is thriving. Truly a masterpiece in racing game development."
+          text: "Seamless Outsource captured the essence of what makes racing games great. Metaforza's graphics are stunning, the physics feel authentic, and the sense of speed is incredible. Our racing community has embraced it wholeheartedly, and the competitive scene is thriving. Truly a masterpiece in racing game development."
         },
         {
           name: "Jessica Park",
-          text: "Innovate Studio perfectly captured the addictive 'one more run' feeling that makes bullet heaven games so compelling. Rampage's upgrade system is genius - the synergies between powers create amazing moments. Our players are obsessed, with some logging hundreds of hours trying different builds and chasing high scores."
+          text: "Seamless Outsource perfectly captured the addictive 'one more run' feeling that makes bullet heaven games so compelling. Rampage's upgrade system is genius - the synergies between powers create amazing moments. Our players are obsessed, with some logging hundreds of hours trying different builds and chasing high scores."
         }
       ]
     },
@@ -120,8 +120,8 @@ const translations = {
     },
     // Footer
     footer: {
-      brand: "Innovate Studio",
-      copyright: "© 2024 Innovate Studio. All rights reserved."
+      brand: "Seamless Outsource",
+      copyright: "© 2024 Seamless Outsource. All rights reserved."
     },
     // Modal
     modal: {
@@ -141,7 +141,7 @@ const translations = {
     },
     // Hero Section
     hero: {
-      brand: "استوديو الابتكار",
+      brand: "سيمليس اوتسورس",
       titleLine1: "نحن نصنع",
       titleLine2: "التميز الرقمي",
       subtitle: "نحول الأفكار إلى تجارب رقمية مذهلة تحقق النتائج",
@@ -190,19 +190,19 @@ const translations = {
       items: [
         {
           name: "أليكس مارتينيز",
-          text: "أحيا استوديو الابتكار رؤيتنا للموبا مع اهتمام لا يصدق بالتفاصيل. اللعب سلس والميكانيكا متوازنة ومجتمع اللاعبين نما بشكل كبير. لقد تجاوزوا كل التوقعات وقدموا تجربة ألعاب تنافسية حقيقية."
+          text: "أحيا سيمليس اوتسورس رؤيتنا للموبا مع اهتمام لا يصدق بالتفاصيل. اللعب سلس والميكانيكا متوازنة ومجتمع اللاعبين نما بشكل كبير. لقد تجاوزوا كل التوقعات وقدموا تجربة ألعاب تنافسية حقيقية."
         },
         {
           name: "إيما رودريغيز",
-          text: "آليات الطيران في كريبتو بلاسترز رائعة للغاية! أنشأ استوديو الابتكار شيئًا مميزًا حقًا - عناصر التحكم بديهية ولكنها عميقة، والقتال الجوي لا مثيل له في السوق. لا يمكن للاعبين الحصول على ما يكفي من تخصيص الطائرات بدون طيار والمعارك الجوية التنافسية."
+          text: "آليات الطيران في كريبتو بلاسترز رائعة للغاية! أنشأ سيمليس اوتسورس شيئًا مميزًا حقًا - عناصر التحكم بديهية ولكنها عميقة، والقتال الجوي لا مثيل له في السوق. لا يمكن للاعبين الحصول على ما يكفي من تخصيص الطائرات بدون طيار والمعارك الجوية التنافسية."
         },
         {
           name: "ماركوس تشين",
-          text: "استوديو الابتكار التقط جوهر ما يجعل ألعاب السباق رائعة. رسومات ميتافورزا مذهلة، والفيزياء تبدو أصلية، والإحساس بالسرعة لا يصدق. لقد احتضنه مجتمع السباق بشكل كامل، والمشهد التنافسي مزدهر. حقًا تحفة فنية في تطوير ألعاب السباق."
+          text: "سيمليس اوتسورس التقط جوهر ما يجعل ألعاب السباق رائعة. رسومات ميتافورزا مذهلة، والفيزياء تبدو أصلية، والإحساس بالسرعة لا يصدق. لقد احتضنه مجتمع السباق بشكل كامل، والمشهد التنافسي مزدهر. حقًا تحفة فنية في تطوير ألعاب السباق."
         },
         {
           name: "جيسيكا بارك",
-          text: "استوديو الابتكار التقط بشكل مثالي شعور 'جولة أخرى' الإدماني الذي يجعل ألعاب الرصاص السماوي مقنعة للغاية. نظام الترقية في رامبيج عبقري - التآزر بين القوى يخلق لحظات مذهلة. لاعبونا مهووسون، حيث يسجل البعض مئات الساعات في تجربة بنيات مختلفة ومطاردة النتائج العالية."
+          text: "سيمليس اوتسورس التقط بشكل مثالي شعور 'جولة أخرى' الإدماني الذي يجعل ألعاب الرصاص السماوي مقنعة للغاية. نظام الترقية في رامبيج عبقري - التآزر بين القوى يخلق لحظات مذهلة. لاعبونا مهووسون، حيث يسجل البعض مئات الساعات في تجربة بنيات مختلفة ومطاردة النتائج العالية."
         }
       ]
     },
@@ -252,8 +252,8 @@ const translations = {
     },
     // Footer
     footer: {
-      brand: "استوديو الابتكار",
-      copyright: "© 2024 استوديو الابتكار. جميع الحقوق محفوظة."
+      brand: "سيمليس اوتسورس",
+      copyright: "© 2024 سيمليس اوتسورس. جميع الحقوق محفوظة."
     },
     // Modal
     modal: {

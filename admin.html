@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics Dashboard - Innovate Studio</title>
+    <title>Analytics Dashboard - Seamless Outsource</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Modern Dashboard Design System */
@@ -164,10 +165,21 @@
             background: var(--gradient);
         }
 
-        .stat-card.primary::before { background: var(--primary-gradient); }
-        .stat-card.success::before { background: var(--success-gradient); }
-        .stat-card.warning::before { background: var(--warning-gradient); }
-        .stat-card.danger::before { background: var(--danger-gradient); }
+        .stat-card.primary::before {
+            background: var(--primary-gradient);
+        }
+
+        .stat-card.success::before {
+            background: var(--success-gradient);
+        }
+
+        .stat-card.warning::before {
+            background: var(--warning-gradient);
+        }
+
+        .stat-card.danger::before {
+            background: var(--danger-gradient);
+        }
 
         .stat-header {
             display: flex;
@@ -187,10 +199,21 @@
             background: var(--bg-light);
         }
 
-        .stat-card.primary .stat-icon { background: rgba(102, 126, 234, 0.1); }
-        .stat-card.success .stat-icon { background: rgba(16, 185, 129, 0.1); }
-        .stat-card.warning .stat-icon { background: rgba(245, 158, 11, 0.1); }
-        .stat-card.danger .stat-icon { background: rgba(239, 68, 68, 0.1); }
+        .stat-card.primary .stat-icon {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .stat-card.success .stat-icon {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .stat-card.warning .stat-icon {
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .stat-card.danger .stat-icon {
+            background: rgba(239, 68, 68, 0.1);
+        }
 
         .stat-label {
             font-size: 0.875rem;
@@ -215,8 +238,13 @@
             font-size: 0.875rem;
         }
 
-        .stat-trend.up { color: var(--success); }
-        .stat-trend.down { color: var(--danger); }
+        .stat-trend.up {
+            color: var(--success);
+        }
+
+        .stat-trend.down {
+            color: var(--danger);
+        }
 
         /* Main Content Grid */
         .dashboard-grid {
@@ -303,8 +331,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Funnel Visualization */
@@ -341,10 +376,21 @@
             transition: width 0.5s ease;
         }
 
-        .funnel-step.step-1::before { background: var(--primary-gradient); }
-        .funnel-step.step-2::before { background: var(--success-gradient); }
-        .funnel-step.step-3::before { background: var(--warning-gradient); }
-        .funnel-step.step-4::before { background: var(--danger-gradient); }
+        .funnel-step.step-1::before {
+            background: var(--primary-gradient);
+        }
+
+        .funnel-step.step-2::before {
+            background: var(--success-gradient);
+        }
+
+        .funnel-step.step-3::before {
+            background: var(--warning-gradient);
+        }
+
+        .funnel-step.step-4::before {
+            background: var(--danger-gradient);
+        }
 
         .funnel-content {
             position: relative;
@@ -441,10 +487,25 @@
             font-weight: 600;
         }
 
-        .badge-primary { background: rgba(102, 126, 234, 0.1); color: #667eea; }
-        .badge-success { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-        .badge-warning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
-        .badge-danger { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+        .badge-primary {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+        }
+
+        .badge-danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
 
         /* Progress Bar */
         .progress-bar {
@@ -540,7 +601,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Quick Actions */
@@ -584,16 +647,16 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .message-card:hover {
             transform: translateX(5px);
         }
-        
+
         .message-card.unread {
             background: rgba(102, 126, 234, 0.05);
             border-left: 4px solid var(--primary);
         }
-        
+
         .message-card.unread::before {
             content: '';
             position: absolute;
@@ -605,12 +668,21 @@
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
         }
-        
+
         .message-status {
             display: inline-flex;
             align-items: center;
@@ -620,17 +692,17 @@
             font-size: 0.75rem;
             font-weight: 600;
         }
-        
+
         .message-status.unread {
             background: rgba(102, 126, 234, 0.1);
             color: var(--primary);
         }
-        
+
         .message-status.read {
             background: rgba(148, 163, 184, 0.1);
             color: var(--text-muted);
         }
-        
+
         .mark-read-btn {
             padding: 0.5rem 1rem;
             background: var(--primary);
@@ -642,12 +714,12 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         .mark-read-btn:hover {
             background: var(--secondary);
             transform: translateY(-1px);
         }
-        
+
         .mark-read-btn:disabled {
             background: var(--border-color);
             color: var(--text-muted);
@@ -701,6 +773,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Dashboard Header -->
     <header class="dashboard-header">
@@ -708,7 +781,7 @@
             <div class="header-brand">
                 <div>
                     <h1>📊 Analytics Dashboard</h1>
-                    <p>Innovate Studio • Real-time insights</p>
+                    <p>Seamless Outsource • Real-time insights</p>
                 </div>
             </div>
             <div class="header-actions">
@@ -780,24 +853,29 @@
         </div>
 
         <!-- Tab Contents -->
-        
+
         <!-- Insights & Actions Tab -->
         <div id="insights-tab" class="tab-content active">
             <!-- Recommendations Section -->
-            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+            <div class="card"
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
                 <div class="card-header" style="border-color: rgba(255,255,255,0.2);">
                     <div>
                         <h2 class="card-title" style="color: white;">🎯 What You Should Do Next</h2>
-                        <p class="card-subtitle" style="color: rgba(255,255,255,0.9);">AI-powered recommendations based on your data</p>
+                        <p class="card-subtitle" style="color: rgba(255,255,255,0.9);">AI-powered recommendations based
+                            on your data</p>
                     </div>
                 </div>
                 <div id="recommendations">
-                    <div class="loading"><div class="spinner"></div></div>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
                 </div>
             </div>
 
             <!-- Quick Stats Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
                 <div class="card">
                     <div class="card-header">
                         <div>
@@ -805,7 +883,9 @@
                         </div>
                     </div>
                     <div id="conversionStats">
-                        <div class="loading"><div class="spinner"></div></div>
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -816,7 +896,9 @@
                         </div>
                     </div>
                     <div id="portfolioStats">
-                        <div class="loading"><div class="spinner"></div></div>
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -827,7 +909,9 @@
                         </div>
                     </div>
                     <div id="contactMethodStats">
-                        <div class="loading"><div class="spinner"></div></div>
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -843,7 +927,9 @@
                     </div>
                 </div>
                 <div class="funnel-viz" id="funnelContainer">
-                    <div class="loading"><div class="spinner"></div></div>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -859,7 +945,9 @@
                     </div>
                 </div>
                 <div id="journeyVisualization">
-                    <div class="loading"><div class="spinner"></div></div>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
                 </div>
             </div>
 
@@ -873,7 +961,9 @@
                         </div>
                     </div>
                     <div id="whatWorking">
-                        <div class="loading"><div class="spinner"></div></div>
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -885,7 +975,9 @@
                         </div>
                     </div>
                     <div id="whatNotWorking">
-                        <div class="loading"><div class="spinner"></div></div>
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -899,7 +991,9 @@
                     </div>
                 </div>
                 <div id="topClicksViz">
-                    <div class="loading"><div class="spinner"></div></div>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -914,12 +1008,15 @@
                     </div>
                     <div style="display: flex; gap: 1rem; align-items: center;">
                         <button class="btn btn-secondary" onclick="filterMessages('all')" id="filterAll">All</button>
-                        <button class="btn btn-secondary" onclick="filterMessages('unread')" id="filterUnread">Unread</button>
+                        <button class="btn btn-secondary" onclick="filterMessages('unread')"
+                            id="filterUnread">Unread</button>
                         <button class="btn btn-secondary" onclick="filterMessages('read')" id="filterRead">Read</button>
                     </div>
                 </div>
                 <div id="messagesList">
-                    <div class="loading"><div class="spinner"></div></div>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -931,4 +1028,5 @@
     <script src="supabase-config.js"></script>
     <script src="admin-dashboard.js"></script>
 </body>
+
 </html>

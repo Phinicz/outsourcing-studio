@@ -266,7 +266,7 @@ let projectData = {
     description:
       "We developed a cutting-edge e-commerce platform that revolutionized online shopping experiences. The project involved creating an intuitive user interface, seamless checkout flow, and robust backend infrastructure to handle thousands of transactions daily.",
     testimonial:
-      "Innovate Studio transformed our online presence completely. The new platform increased our sales by 150% and customer satisfaction is at an all-time high. Their attention to detail and understanding of our business needs was exceptional.",
+      "Seamless Outsource transformed our online presence completely. The new platform increased our sales by 150% and customer satisfaction is at an all-time high. Their attention to detail and understanding of our business needs was exceptional.",
     clientName: "John Smith",
     clientRole: "CEO, TechCorp",
     images: [
@@ -287,7 +287,7 @@ projectData = {
     description:
       "Arcania is an epic 5v5 MOBA game where strategy meets action. Connect with your friends, form unstoppable teams, and engage in intense battles across beautifully crafted arenas. Master unique heroes, each with their own abilities and playstyles, as you fight for dominance in this competitive multiplayer experience.",
     testimonial:
-      "Innovate Studio brought our MOBA vision to life with incredible attention to detail. The gameplay is smooth, the mechanics are balanced, and our player community has grown exponentially. They exceeded every expectation and delivered a truly competitive gaming experience.",
+      "Seamless Outsource brought our MOBA vision to life with incredible attention to detail. The gameplay is smooth, the mechanics are balanced, and our player community has grown exponentially. They exceeded every expectation and delivered a truly competitive gaming experience.",
     clientName: "Alex Martinez",
     clientRole: "Game Director, Arcania Studios",
     clientImage: "https://randomuser.me/api/portraits/men/45.jpg",
@@ -318,7 +318,7 @@ projectData = {
     description:
       "Take to the skies in Crypto Blasters, featuring revolutionary drone flying mechanics developed from the ground up by our talented team. Engage in fast-paced aerial combat with intuitive controls that make you feel like a true ace pilot. Customize your drone, master advanced maneuvers, and dominate the skies in this adrenaline-fueled experience.",
     testimonial:
-      "The flying mechanics in Crypto Blasters are absolutely phenomenal! Innovate Studio created something truly special - the controls are intuitive yet deep, and the aerial combat is unlike anything else on the market. Our players can't get enough of the drone customization and competitive dogfights.",
+      "The flying mechanics in Crypto Blasters are absolutely phenomenal! Seamless Outsource created something truly special - the controls are intuitive yet deep, and the aerial combat is unlike anything else on the market. Our players can't get enough of the drone customization and competitive dogfights.",
     clientName: "Emma Rodriguez",
     clientRole: "CEO, SkyNet Gaming",
     clientImage: "https://randomuser.me/api/portraits/women/68.jpg",
@@ -349,7 +349,7 @@ projectData = {
     description:
       "Metaforza delivers the ultimate racing experience with breathtaking graphics, heart-pounding speed, and realistic vehicle physics. Race through stunning environments, from neon-lit city streets to treacherous mountain passes. Customize your dream car and compete against rivals in this high-octane racing game that pushes the limits of visual fidelity and performance.",
     testimonial:
-      "Innovate Studio captured the essence of what makes racing games great. Metaforza's graphics are stunning, the physics feel authentic, and the sense of speed is incredible. Our racing community has embraced it wholeheartedly, and the competitive scene is thriving. Truly a masterpiece in racing game development.",
+      "Seamless Outsource captured the essence of what makes racing games great. Metaforza's graphics are stunning, the physics feel authentic, and the sense of speed is incredible. Our racing community has embraced it wholeheartedly, and the competitive scene is thriving. Truly a masterpiece in racing game development.",
     clientName: "Marcus Chen",
     clientRole: "Creative Director, SpeedDemon Games",
     clientImage: "https://randomuser.me/api/portraits/men/32.jpg",
@@ -380,7 +380,7 @@ projectData = {
     description:
       "Rampage is an addictive rogue-like bullet heaven game that throws you into endless waves of chaos. Survive hordes of enemies, collect powerful upgrades, and create devastating build combinations. Each run is unique with procedurally generated levels and random power-ups. How long can you survive the rampage?",
     testimonial:
-      "Innovate Studio perfectly captured the addictive 'one more run' feeling that makes bullet heaven games so compelling. Rampage's upgrade system is genius - the synergies between powers create amazing moments. Our players are obsessed, with some logging hundreds of hours trying different builds and chasing high scores.",
+      "Seamless Outsource perfectly captured the addictive 'one more run' feeling that makes bullet heaven games so compelling. Rampage's upgrade system is genius - the synergies between powers create amazing moments. Our players are obsessed, with some logging hundreds of hours trying different builds and chasing high scores.",
     clientName: "Jessica Park",
     clientRole: "Indie Developer & Founder",
     clientImage: "https://randomuser.me/api/portraits/women/44.jpg",
@@ -446,7 +446,7 @@ const initVideoModal = () => {
             title: title,
             description: description,
             testimonial:
-              "Working with Innovate Studio was an incredible experience. They delivered beyond our expectations and helped us achieve our goals.",
+              "Working with Seamless Outsource was an incredible experience. They delivered beyond our expectations and helped us achieve our goals.",
             clientName: "Client Name",
             clientRole: "Client Role",
             images: [
