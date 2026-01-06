@@ -135,7 +135,7 @@ const translations = {
     // Footer
     footer: {
       brand: "Seamless Outsource",
-      copyright: "© 2024 Seamless Outsource. All rights reserved."
+      copyright: "©  Seamless Outsource. All rights reserved."
     },
     // Modal
     modal: {
@@ -281,7 +281,7 @@ const translations = {
     // Footer
     footer: {
       brand: "سيمليس اوتسورس",
-      copyright: "© 2024 سيمليس اوتسورس. جميع الحقوق محفوظة."
+      copyright: "©  سيمليس اوتسورس. جميع الحقوق محفوظة."
     },
     // Modal
     modal: {
