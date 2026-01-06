@@ -711,6 +711,7 @@ function initAll() {
   fixHomepageYouTubeEmbeds();
   initVideoModal();
   initTestimonialSlider();
+  initHeroTestimonials();
 
   console.log('=== Initialization complete ===');
 }
@@ -1072,3 +1073,57 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Hero Testimonials Rotation
+const initHeroTestimonials = () => {
+  const card = document.querySelector('.hero-testimonial-card');
+  const textEl = document.querySelector('.hero-testimonial-text');
+  const nameEl = document.querySelector('.hero-testimonial-name');
+  const roleEl = document.querySelector('.hero-testimonial-role');
+  const imgEl = document.querySelector('.hero-testimonial-img');
+
+  if (!card || !textEl || !nameEl || !roleEl) return;
+
+  let currentIndex = 0;
+
+  const getTestimonialCount = () => {
+    if (typeof translations !== 'undefined' && translations[currentLang] && translations[currentLang].heroTestimonials) {
+      return translations[currentLang].heroTestimonials.items.length;
+    }
+    return 2; // Default fallback
+  };
+
+  const updateTestimonial = () => {
+    // Fade out
+    card.classList.add('testimonial-fade-out');
+    card.classList.remove('testimonial-fade-in');
+
+    setTimeout(() => {
+      // Update content
+      currentIndex = (currentIndex + 1) % getTestimonialCount();
+
+      // Update data-translate attributes
+      textEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.text`);
+      nameEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.name`);
+      roleEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.role`);
+
+      // Use placeholder as requested
+      if (imgEl) {
+        imgEl.src = "/public/images/testimonials/default_pp.webp";
+      }
+
+      // Re-apply translations for the new keys
+      applyTranslations();
+
+      // Small delay before fading back in for a smoother transition
+      setTimeout(() => {
+        card.classList.remove('testimonial-fade-out');
+        card.classList.add('testimonial-fade-in');
+      }, 50);
+    }, 600); // Wait for fade out (matching CSS transition)
+  };
+
+  // Start rotation
+  setInterval(updateTestimonial, 15000); // Rotate every 15 seconds
+};
+

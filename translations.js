@@ -20,6 +20,20 @@ const translations = {
       trustedBy: "Trusted By",
       scrollDown: "Scroll Down"
     },
+    heroTestimonials: {
+      items: [
+        {
+          text: "I can confidently say this is one of the best web design companies I’ve ever worked with. Their team is highly skilled, extremely cooperative, and very patient with revisions. They delivered the project exactly as I envisioned it — if not better.",
+          name: "Haytham Drawy",
+          role: "Founder of Kick-off"
+        },
+        {
+          text: "We had an excellent experience working with the you for the development of the 3D game. Your team is highly skilled, professional, and extremely easy to collaborate with. The team was patient with feedback and revisions, and consistently attentive to details throughout the process.",
+          name: "Sanjay Shukla",
+          role: "CEO of ZED taxi"
+        }
+      ]
+    },
     // Portfolio Section
     portfolio: {
       title: "Our Portfolio",
@@ -150,6 +164,20 @@ const translations = {
       freeBadge: "استشارة مجانية",
       trustedBy: "موثوق من قبل",
       scrollDown: "انتقل للأسفل"
+    },
+    heroTestimonials: {
+      items: [
+        {
+          text: "بجد دي واحدة من أحسن شركات تصميم المواقع اللي اشتغلت معاهم. التيم شاطر جداً ومتعاون وليهم طولة بال في التعديلات. سلموا المشروع زي ما كنت متخيله بالظبط ويمكن أحسن كمان. اللي بيميزهم بجد هو حلولهم المبتكرة وأفكارهم اللي بتفرق، خصوصاً لما كنت محتار في حاجات معينة.",
+          name: "هيثم دراوي",
+          role: "مؤسس Kick-off"
+        },
+        {
+          text: "عايز أقول رأيي في تجربتنا معاكم في تطوير اللعبة. التجربة كانت ممتازة، التيم محترف جداً وسهل في التعامل. كانوا صبورين جداً في التعديلات وبيهتموا بالتفاصيل. رغم إن الوقت كان ضيق جداً، سلموا المشروع في ميعاده وبالجودة اللي كنا عايزينها.",
+          name: "سانجاي شوكلا",
+          role: "الرئيس التنفيذي لـ ZED taxi"
+        }
+      ]
     },
     // Portfolio Section
     portfolio: {
