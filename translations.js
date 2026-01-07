@@ -171,6 +171,148 @@ const translations = {
       android: "Android",
       ios: "iOS",
       web: "Web"
+    },
+    // Project Modal Details
+    projectDetails: {
+      arcania: {
+        category: "Game Development",
+        title: "Arcania",
+        description: "Arcania is an epic 5v5 MOBA game where strategy meets action. Connect with your friends, form unstoppable teams, and engage in intense battles across beautifully crafted arenas. Master unique heroes, each with their own abilities and playstyles, as you fight for dominance in this competitive multiplayer experience.",
+        technologies: ["Unity", "Photon Engine", "C#", "Node.js", "PostgreSQL", "AWS"],
+        details: [
+          {
+            title: "Strategic Team-Based Combat",
+            text: "Experience intense 5v5 battles where teamwork and strategy are paramount. Each hero features unique abilities and roles - from devastating damage dealers to stalwart defenders. Coordinate with your team, execute perfectly timed combos, and outmaneuver opponents in dynamic arena environments that reward skill and tactical thinking."
+          },
+          {
+            title: "Competitive Ranked System",
+            text: "Climb the ranks in our competitive ladder system. From Bronze to Legendary, prove your skills against players worldwide. Seasonal rewards, leaderboards, and tournaments provide endless competitive opportunities. Our advanced matchmaking ensures fair, balanced matches that challenge you to improve with every game."
+          }
+        ]
+      },
+      cryptoBlasters: {
+        category: "Game Development",
+        title: "Crypto Blasters",
+        description: "Take to the skies in Crypto Blasters, featuring revolutionary drone flying mechanics developed from the ground up by our talented team. Engage in fast-paced aerial combat with intuitive controls that make you feel like a true ace pilot. Customize your drone, master advanced maneuvers, and dominate the skies in this adrenaline-fueled experience.",
+        technologies: ["Unreal Engine", "C++", "Blockchain Integration", "Multiplayer Networking", "Azure"],
+        details: [
+          {
+            title: "Revolutionary Flight Physics",
+            text: "Our custom-built flight system delivers an unparalleled sense of freedom and control. Experience realistic momentum, drift mechanics, and environmental effects as you navigate through stunning aerial battlegrounds. The physics engine responds to every input with precision, creating an authentic piloting experience that's easy to learn but challenging to master."
+          },
+          {
+            title: "Deep Customization System",
+            text: "Build your perfect drone with hundreds of parts, weapons, and upgrades. Mix and match components to create unique loadouts that match your combat style. From lightning-fast interceptors to heavily-armored gunships, every configuration offers distinct advantages. Unlock rare parts through gameplay and showcase your custom designs in the hangar."
+          },
+          {
+            title: "Intense Multiplayer Battles",
+            text: "Engage in thrilling multiplayer matches across diverse game modes. From team deathmatches to objective-based scenarios, every battle tests your piloting skills and tactical awareness. Advanced matchmaking ensures competitive balance while clan systems let you team up with friends for coordinated strikes. Rise through the ranks and earn exclusive rewards."
+          }
+        ]
+      },
+      metaforza: {
+        category: "Game Development",
+        title: "Metaforza",
+        description: "Metaforza delivers the ultimate racing experience with breathtaking graphics, heart-pounding speed, and realistic vehicle physics. Race through stunning environments, from neon-lit city streets to treacherous mountain passes. Customize your dream car and compete against rivals in this high-octane racing game that pushes the limits of visual fidelity and performance.",
+        technologies: ["Unreal Engine 5", "C++", "Photogrammetry", "Real-time Ray Tracing", "Steam SDK"],
+        details: [
+          {
+            title: "Photorealistic Graphics",
+            text: "Experience racing like never before with cutting-edge graphics powered by Unreal Engine 5. Real-time ray tracing creates stunning reflections and lighting, while photogrammetry-scanned environments deliver unprecedented realism. Dynamic weather and time-of-day systems transform each track, ensuring every race feels fresh and visually spectacular."
+          },
+          {
+            title: "Authentic Car Collection",
+            text: "Drive meticulously recreated vehicles from the world's most prestigious manufacturers. Each car features authentic handling characteristics, engine sounds recorded from real vehicles, and detailed interiors. From classic muscle cars to modern supercars and futuristic prototypes, build your ultimate garage and feel the unique personality of every machine."
+          },
+          {
+            title: "Career Mode & Online Championships",
+            text: "Forge your legacy in an expansive career mode that takes you from amateur racer to racing legend. Compete in diverse championships, unlock sponsorships, and build your reputation. Take the competition online with ranked matches, seasonal leagues, and special events. Prove you're the fastest with global leaderboards and competitive tournaments."
+          }
+        ]
+      },
+      rampage: {
+        category: "Game Development",
+        title: "Rampage",
+        description: "Rampage is an addictive rogue-like bullet heaven game that throws you into endless waves of chaos. Survive hordes of enemies, collect powerful upgrades, and create devastating build combinations. Each run is unique with procedurally generated levels and random power-ups. How long can you survive the rampage?",
+        technologies: ["Unity", "C#", "Procedural Generation", "Particle Systems", "Steam API"],
+        details: [
+          {
+            title: "Endless Replayability",
+            text: "No two runs are ever the same in Rampage. Procedurally generated levels keep you on your toes, while a vast array of weapons, abilities, and upgrades create countless build possibilities. Experiment with different combinations to discover powerful synergies. The rogue-like structure means every decision matters - will you risk it all for a legendary upgrade?"
+          },
+          {
+            title: "Screen-Filling Action",
+            text: "Experience pure bullet heaven chaos as you mow down thousands of enemies in spectacular fashion. Advanced particle systems create mesmerizing visual effects when your maxed-out abilities unleash destruction. The game scales from tense early moments to absurd late-game power fantasies where you become an unstoppable force of nature."
+          },
+          {
+            title: "Strategic Depth",
+            text: "Behind the chaotic action lies deep strategic gameplay. Choose your character from a diverse roster, each with unique starting abilities and scaling potential. Plan your upgrade path, balance offense and defense, and adapt to the evolving threats. Meta progression unlocks new content and abilities, giving you more tools for future runs. Master the art of survival and top the global leaderboards."
+          }
+        ]
+      },
+      zedTaxi: {
+        category: "Branding",
+        title: "Zed Taxi",
+        description: "Ultra-fast web mini-game loading in under 4 seconds, delivering an exceptional UAE taxi gaming experience. Built with cutting-edge web technologies to ensure instant playability and smooth performance across all devices.",
+        testimonial: "We had an excellent experience working with you for the development of the 3D game. Your team is highly skilled, professional, and extremely easy to collaborate with. The team was patient with feedback and revisions, and consistently attentive to details throughout the process.",
+        clientName: "Sanjay Shukla",
+        clientRole: "CEO of ZED taxi",
+        technologies: ["Three.js", "WebGL", "JavaScript", "HTML5", "CSS3", "Web Optimization"],
+        details: [
+          {
+            title: "Lightning-Fast Loading",
+            text: "Optimized for speed with a sub-4-second load time, our innovative approach ensures players can jump into the action immediately. Advanced web optimization techniques and efficient asset management create a seamless experience that rivals native applications, all within a browser."
+          },
+          {
+            title: "Authentic Taxi Experience",
+            text: "Immerse yourself in the vibrant streets of the UAE with realistic driving mechanics and detailed 3D environments. From bustling city streets to scenic routes, every detail has been crafted to deliver an engaging and authentic taxi driving experience."
+          },
+          {
+            title: "Cross-Platform Excellence",
+            text: "Play anywhere, anytime on any device. The game scales perfectly from desktop to mobile, maintaining smooth 60fps performance and responsive controls. No downloads required - just open your browser and start playing instantly."
+          }
+        ]
+      },
+      hatchyverse: {
+        category: "Web Design",
+        title: "Hatchyverse",
+        description: "First decentralized IP Web3 Dapp with token contracts, DEX, and P2P trading. A comprehensive blockchain platform enabling seamless interaction with digital assets in the Web3 ecosystem.",
+        technologies: ["React", "Web3.js", "Solidity", "Smart Contracts", "Blockchain", "Ethereum"],
+        details: [
+          {
+            title: "Decentralized Infrastructure",
+            text: "Built on blockchain technology to ensure transparency, security, and true ownership of digital assets. The platform leverages smart contracts to automate processes and eliminate intermediaries, creating a trustless environment for users."
+          },
+          {
+            title: "Token Economy & DEX",
+            text: "Integrated decentralized exchange (DEX) functionality allows users to trade tokens directly from their wallets. The token economy is designed to incentivize participation and create value for the community."
+          },
+          {
+            title: "P2P Trading Platform",
+            text: "Peer-to-peer trading capabilities enable users to exchange digital assets directly with each other, fostering a vibrant marketplace for collectors and traders. Advanced filtering and search features make finding the perfect assets easy."
+          }
+        ]
+      },
+      anons: {
+        category: "Web Design",
+        title: "Anons",
+        description: "NFT minting landing website on AVAX chain with seamless wallet integration. A sleek and modern platform designed for minting unique digital collectibles on the Avalanche blockchain.",
+        technologies: ["React", "Web3.js", "Avalanche", "NFT", "Smart Contracts", "IPFS"],
+        details: [
+          {
+            title: "Seamless Wallet Integration",
+            text: "One-click wallet connectivity supporting major crypto wallets. The integration provides a smooth user experience from connection to minting, ensuring accessibility for both newcomers and experienced collectors."
+          },
+          {
+            title: "AVAX Blockchain",
+            text: "Built on Avalanche for fast, low-cost transactions. The AVAX chain offers near-instant finality and minimal gas fees, making NFT minting accessible and affordable for everyone."
+          },
+          {
+            title: "Optimized Minting Experience",
+            text: "Streamlined minting process with real-time transaction feedback and status updates. Users can easily mint their NFTs with confidence, backed by secure smart contract technology and IPFS storage for permanent asset preservation."
+          }
+        ]
+      }
     }
   },
   ar: {
@@ -344,6 +486,148 @@ const translations = {
       android: "أندرويد",
       ios: "آي أو إس",
       web: "ويب"
+    },
+    // Project Modal Details (Arabic)
+    projectDetails: {
+      arcania: {
+        category: "تطوير الألعاب",
+        title: "أركانيا",
+        description: "أركانيا هي لعبة موبا ملحمية 5 ضد 5 حيث تلتقي الإستراتيجية بالحركة. تواصل مع أصدقائك، وشكل فرقًا لا يمكن إيقافها، وانخرط في معارك مكثفة عبر ساحات مصممة بشكل جميل. أتقن أبطالًا فريدين، كل منهم بقدراته وأساليب لعبه الخاصة، أثناء القتال من أجل الهيمنة في هذه التجربة التنافسية متعددة اللاعبين.",
+        technologies: ["يونيتي", "محرك فوتون", "سي شارب", "نود.جي إس", "بوستجره إس كيو إل", "إيه دبليو إس"],
+        details: [
+          {
+            title: "قتال جماعي استراتيجي",
+            text: "اختبر معارك مكثفة 5 ضد 5 حيث العمل الجماعي والإستراتيجية أمران بالغا الأهمية. يتميز كل بطل بقدرات وأدوار فريدة - من مسببي الضرر المدمر إلى المدافعين الأقوياء. نسق مع فريقك، ونفذ تركيبات موقوتة بشكل مثالي، وتفوق على الخصوم في بيئات الساحة الديناميكية التي تكافئ المهارة والتفكير التكتيكي."
+          },
+          {
+            title: "نظام تصنيف تنافسي",
+            text: "تسلق الرتب في نظام السلم التنافسي. من البرونز إلى الأسطوري، أثبت مهاراتك ضد اللاعبين في جميع أنحاء العالم. المكافآت الموسمية ولوحات المتصدرين والبطولات توفر فرصًا تنافسية لا نهاية لها. يضمن نظام المطابقة المتقدم لدينا مباريات عادلة ومتوازنة تتحداك للتحسين مع كل لعبة."
+          }
+        ]
+      },
+      cryptoBlasters: {
+        category: "تطوير الألعاب",
+        title: "كريبتو بلاسترز",
+        description: "انطلق إلى السماء في كريبتو بلاسترز، التي تتميز بآليات طيران طائرات بدون طيار ثورية تم تطويرها من الأساس بواسطة فريقنا الموهوب. انخرط في قتال جوي سريع الوتيرة مع عناصر تحكم بديهية تجعلك تشعر وكأنك طيار آس حقيقي. خصص طائرتك بدون طيار، وأتقن المناورات المتقدمة، واهيمن على السماء في هذه التجربة المليئة بالأدرينالين.",
+        technologies: ["أنريل إنجن", "سي++", "تكامل البلوكشين", "شبكات متعددة اللاعبين", "آجور"],
+        details: [
+          {
+            title: "فيزياء طيران ثورية",
+            text: "يوفر نظام الطيران المخصص لدينا إحساسًا لا مثيل له بالحرية والتحكم. اختبر الزخم الواقعي وميكانيكا الانجراف والتأثيرات البيئية أثناء التنقل عبر ساحات معارك جوية مذهلة. يستجيب محرك الفيزياء لكل إدخال بدقة، مما يخلق تجربة طيار أصيلة سهلة التعلم ولكنها صعبة الإتقان."
+          },
+          {
+            title: "نظام تخصيص عميق",
+            text: "ابنِ طائرتك بدون طيار المثالية بمئات الأجزاء والأسلحة والتحديثات. امزج ومطابق المكونات لإنشاء تحميلات فريدة تتناسب مع أسلوب قتالك. من المعترضات فائقة السرعة إلى السفن المدرعة بشكل كبير، كل تكوين يوفر مزايا مميزة. افتح الأجزاء النادرة من خلال اللعب واعرض تصميماتك المخصصة في الحظيرة."
+          },
+          {
+            title: "معارك متعددة اللاعبين مكثفة",
+            text: "انخرط في مباريات متعددة اللاعبين مثيرة عبر أوضاع لعب متنوعة. من مباريات الموت الجماعية إلى السيناريوهات القائمة على الأهداف، كل معركة تختبر مهارات الطيران والوعي التكتيكي. يضمن نظام المطابقة المتقدم توازنًا تنافسيًا بينما تتيح لك أنظمة العشيرة التعاون مع الأصدقاء للضربات المنسقة. ارتقِ في الرتب واربح مكافآت حصرية."
+          }
+        ]
+      },
+      metaforza: {
+        category: "تطوير الألعاب",
+        title: "ميتافورزا",
+        description: "تقدم ميتافورزا تجربة السباق المطلقة برسومات خلابة وسرعة تخطف الأنفاس وفيزياء مركبات واقعية. تسابق من خلال بيئات مذهلة، من شوارع المدينة المضاءة بالنيون إلى ممرات الجبال الغادرة. خصص سيارة أحلامك وتنافس ضد المنافسين في لعبة السباق عالية الأوكتان التي تدفع حدود الدقة البصرية والأداء.",
+        technologies: ["أنريل إنجن 5", "سي++", "التصوير الفوتوغرافي", "تتبع الأشعة في الوقت الفعلي", "ستيم إس دي كيه"],
+        details: [
+          {
+            title: "رسومات واقعية",
+            text: "اختبر السباق كما لم يحدث من قبل برسومات متطورة مدعومة بمحرك أنريل 5. يخلق تتبع الأشعة في الوقت الفعلي انعكاسات وإضاءة مذهلة، بينما توفر البيئات الممسوحة ضوئيًا واقعية غير مسبوقة. تحول أنظمة الطقس الديناميكي والوقت من اليوم كل مسار، مما يضمن أن كل سباق يبدو جديدًا ومذهلًا بصريًا."
+          },
+          {
+            title: "مجموعة سيارات أصلية",
+            text: "قُد المركبات المعاد إنشاؤها بدقة من أرقى الشركات المصنعة في العالم. تتميز كل سيارة بخصائص التعامل الأصلية وأصوات المحرك المسجلة من المركبات الحقيقية والتصميمات الداخلية التفصيلية. من سيارات العضلات الكلاسيكية إلى السيارات الرياضية الحديثة والنماذج المستقبلية، ابنِ مرآبك النهائي واشعر بالشخصية الفريدة لكل آلة."
+          },
+          {
+            title: "وضع المهنة والبطولات عبر الإنترنت",
+            text: "اصنع إرثك في وضع مهني واسع يأخذك من متسابق هاوٍ إلى أسطورة السباق. تنافس في بطولات متنوعة، وافتح الرعايات، وابنِ سمعتك. خذ المنافسة عبر الإنترنت مع المباريات المصنفة والدوريات الموسمية والأحداث الخاصة. أثبت أنك الأسرع مع لوحات المتصدرين العالمية والبطولات التنافسية."
+          }
+        ]
+      },
+      rampage: {
+        category: "تطوير الألعاب",
+        title: "رامبيج",
+        description: "رامبيج هي لعبة روغلايك إدمانية تلقي بك في موجات لا نهاية لها من الفوضى. انجُ من جحافل الأعداء، واجمع الترقيات القوية، وأنشئ تركيبات بناء مدمرة. كل تشغيل فريد من نوعه مع مستويات تم إنشاؤها إجرائيًا وقوى عشوائية. إلى متى يمكنك البقاء على قيد الحياة في هذا الهجوم؟",
+        technologies: ["يونيتي", "سي شارب", "توليد إجرائي", "أنظمة الجسيمات", "ستيم إيه بي آي"],
+        details: [
+          {
+            title: "قابلية إعادة لعب لا نهائية",
+            text: "لا توجد جولتان متشابهتان أبدًا في رامبيج. تبقيك المستويات المولدة إجرائيًا في حالة تأهب، بينما تخلق مجموعة واسعة من الأسلحة والقدرات والترقيات إمكانيات بناء لا حصر لها. جرب مجموعات مختلفة لاكتشاف التآزر القوي. البنية الروغلايك تعني أن كل قرار مهم - هل ستخاطر بكل شيء من أجل ترقية أسطورية؟"
+          },
+          {
+            title: "حركة تملأ الشاشة",
+            text: "اختبر فوضى السماء الخالصة بينما تقضي على آلاف الأعداء بطريقة مذهلة. تخلق أنظمة الجسيمات المتقدمة تأثيرات بصرية ساحرة عندما تطلق قدراتك القصوى الدمار. تتدرج اللعبة من لحظات مبكرة متوترة إلى خيالات قوة متأخرة سخيفة حيث تصبح قوة لا يمكن إيقافها من الطبيعة."
+          },
+          {
+            title: "عمق استراتيجي",
+            text: "وراء الحركة الفوضوية تكمن طريقة لعب استراتيجية عميقة. اختر شخصيتك من قائمة متنوعة، كل منها بقدرات بداية فريدة وإمكانات توسيع. خطط لمسار الترقية، وازن الهجوم والدفاع، وتكيف مع التهديدات المتطورة. يفتح التقدم الميتا محتوى وقدرات جديدة، مما يمنحك المزيد من الأدوات للتشغيلات المستقبلية. أتقن فن البقاء وتصدر لوحات المتصدرين العالمية."
+          }
+        ]
+      },
+      zedTaxi: {
+        category: "العلامات التجارية",
+        title: "زيد تاكسي",
+        description: "لعبة ويب صغيرة فائقة السرعة تحمّل في أقل من 4 ثوانٍ، تقدم تجربة ألعاب تاكسي استثنائية في الإمارات. مبنية بتقنيات ويب متطورة لضمان إمكانية اللعب الفوري والأداء السلس عبر جميع الأجهزة.",
+        testimonial: "عايز أقول رأيي في تجربتنا معاكم في تطوير اللعبة. التجربة كانت ممتازة، التيم محترف جداً وسهل في التعامل. كانوا صبورين جداً في التعديلات وبيهتموا بالتفاصيل.",
+        clientName: "سانجاي شوكلا",
+        clientRole: "الرئيس التنفيذي لـ ZED taxi",
+        technologies: ["ثري.جي إس", "ويب جي إل", "جافا سكريبت", "إتش تي إم إل5", "سي إس إس3", "تحسين الويب"],
+        details: [
+          {
+            title: "تحميل فائق السرعة",
+            text: "محسّن للسرعة مع وقت تحميل أقل من 4 ثوانٍ، يضمن نهجنا المبتكر أن يتمكن اللاعبون من الانخراط في العمل على الفور. تقنيات تحسين الويب المتقدمة وإدارة النباتات الفعالة تخلق تجربة سلسة تنافس التطبيقات الأصلية، كل ذلك داخل المتصفح."
+          },
+          {
+            title: "تجربة تاكسي أصلية",
+            text: "انغمس في شوارع الإمارات النابضة بالحياة مع ميكانيكا قيادة واقعية وبيئات ثلاثية الأبعاد مفصلة. من شوارع المدينة المزدحمة إلى الطرق ذات المناظر الخلابة، تم صياغة كل التفاصيل لتقديم تجربة قيادة تاكسي جذابة وأصلية."
+          },
+          {
+            title: "تميز عبر المنصات",
+            text: "العب في أي مكان وفي أي وقت على أي جهاز. اللعبة تتوسع بشكل مثالي من سطح المكتب إلى الجوال، مع الحفاظ على أداء سلس 60 إطارًا في الثانية وعناصر تحكم سريعة الاستجابة. لا حاجة للتنزيلات - فقط افتح متصفحك وابدأ اللعب على الفور."
+          }
+        ]
+      },
+      hatchyverse: {
+        category: "تصميم المواقع",
+        title: "هاتشيفيرس",
+        description: "أول تطبيق ويب3 لامركزي للملكية الفكرية مع عقود الرموز، DEX، والتداول P2P. منصة بلوكشين شاملة تتيح التفاعل السلس مع الأصول الرقمية في نظام Web3.",
+        technologies: ["رياكت", "ويب3.جي إس", "سوليديتي", "عقود ذكية", "بلوكشين", "إيثريوم"],
+        details: [
+          {
+            title: "بنية تحتية لامركزية",
+            text: "مبنية على تقنية البلوكشين لضمان الشفافية والأمان والملكية الحقيقية للأصول الرقمية. تستفيد المنصة من العقود الذكية لأتمتة العمليات والقضاء على الوسطاء، مما يخلق بيئة موثوقة للمستخدمين."
+          },
+          {
+            title: "اقتصاد الرموز و DEX",
+            text: "تتيح وظيفة التبادل اللامركزي (DEX) المتكاملة للمستخدمين تداول الرموز مباشرة من محافظهم. تم تصميم اقتصاد الرموز لتحفيز المشاركة وخلق قيمة للمجتمع."
+          },
+          {
+            title: "منصة تداول P2P",
+            text: "تمكّن قدرات التداول من نظير إلى نظير المستخدمين من تبادل الأصول الرقمية مباشرة مع بعضهم البعض، مما يعزز سوقًا نابضًا بالحياة للجامعين والتجار. ميزات التصفية والبحث المتقدمة تجعل العثور على الأصول المثالية سهلاً."
+          }
+        ]
+      },
+      anons: {
+        category: "تصميم المواقع",
+        title: "أنونز",
+        description: "موقع هبوط لصك NFT على سلسلة AVAX مع تكامل محفظة سلس. منصة أنيقة وحديثة مصممة لصك المقتنيات الرقمية الفريدة على بلوكشين أفالانش.",
+        technologies: ["رياكت", "ويب3.جي إس", "أفالانش", "إن إف تي", "عقود ذكية", "آي بي إف إس"],
+        details: [
+          {
+            title: "تكامل محفظة سلس",
+            text: "اتصال المحفظة بنقرة واحدة يدعم المحافظ الرئيسية للعملات الرقمية. يوفر التكامل تجربة مستخدم سلسة من الاتصال إلى الصك، مما يضمن إمكانية الوصول للوافدين الجدد والجامعين ذوي الخبرة."
+          },
+          {
+            title: "بلوكشين AVAX",
+            text: "مبنية على أفالانش للمعاملات السريعة منخفضة التكلفة. توفر سلسلة AVAX نهائية شبه فورية ورسوم غاز ضئيلة، مما يجعل صك NFT في متناول الجميع وبأسعار معقولة."
+          },
+          {
+            title: "تجربة صك محسّنة",
+            text: "عملية صك مبسطة مع ملاحظات المعاملات في الوقت الفعلي وتحديثات الحالة. يمكن للمستخدمين بسهولة صك NFTs الخاصة بهم بثقة، مدعومة بتقنية العقود الذكية الآمنة وتخزين IPFS للحفاظ الدائم على الأصول."
+          }
+        ]
+      }
     }
   }
 };

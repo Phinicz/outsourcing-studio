@@ -535,6 +535,46 @@ projectData = {
   }
 };
 
+// Helper function to get project data for modal from translations
+function getProjectDataForModal(videoId) {
+  // Map video IDs to project keys
+  const videoIdToProjectKey = {
+    'zUjvpoeulSs': 'arcania',
+    '5Is173XQeyg': 'cryptoBlasters',
+    'FiEdMhpgbAI': 'metaforza',
+    'KBXnfm4q1NU': 'rampage',
+    'zzEllp4Mf8c': 'zedTaxi',
+    'v03HpBk2Pk8': 'hatchyverse',
+    'JTyxrQS50v8': 'anons'
+  };
+
+  const projectKey = videoIdToProjectKey[videoId];
+  if (!projectKey || !translations[currentLang]) {
+    return null;
+  }
+
+  const projectDetails = translations[currentLang].projectDetails[projectKey];
+  if (!projectDetails) {
+    return null;
+  }
+
+  // Get the original project data for video ID and images (non-translatable)
+  const originalData = projectData[videoId] || {};
+
+  // Merge translated content with original non-translatable data
+  return {
+    ...originalData,
+    category: projectDetails.category,
+    title: projectDetails.title,
+    description: projectDetails.description,
+    technologies: projectDetails.technologies || originalData.technologies,
+    details: projectDetails.details || originalData.details,
+    testimonial: projectDetails.testimonial || originalData.testimonial,
+    clientName: projectDetails.clientName || originalData.clientName,
+    clientRole: projectDetails.clientRole || originalData.clientRole
+  };
+}
+
 // Video Modal Functionality
 const initVideoModal = () => {
   const videoModal = document.getElementById("videoModal");
@@ -568,8 +608,11 @@ const initVideoModal = () => {
       card.style.cursor = "pointer";
       card.addEventListener("click", () => {
         if (videoId) {
+          // Get translated project data
+          const translatedData = getProjectDataForModal(videoId);
+
           // Get project data or use defaults
-          const data = projectData[videoId] || {
+          const data = translatedData || projectData[videoId] || {
             category: category,
             title: title,
             description: description,
@@ -620,15 +663,6 @@ const initVideoModal = () => {
             testimonialSection.style.display = "block";
           } else {
             testimonialSection.style.display = "none";
-          }
-
-          // Update project link
-          const projectLink = document.getElementById("projectLink");
-          if (data.projectLink) {
-            projectLink.href = data.projectLink;
-            projectLink.style.display = "inline-flex";
-          } else {
-            projectLink.style.display = "none";
           }
 
           // Populate technologies
