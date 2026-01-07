@@ -286,11 +286,6 @@ projectData = {
     title: "Arcania",
     description:
       "Arcania is an epic 5v5 MOBA game where strategy meets action. Connect with your friends, form unstoppable teams, and engage in intense battles across beautifully crafted arenas. Master unique heroes, each with their own abilities and playstyles, as you fight for dominance in this competitive multiplayer experience.",
-    testimonial:
-      "Seamless Outsource brought our MOBA vision to life with incredible attention to detail. The gameplay is smooth, the mechanics are balanced, and our player community has grown exponentially. They exceeded every expectation and delivered a truly competitive gaming experience.",
-    clientName: "Alex Martinez",
-    clientRole: "Game Director, Arcania Studios",
-    clientImage: "https://randomuser.me/api/portraits/men/45.jpg",
     projectLink: "#",
     videoId: "Nmhs6U8127g",
     technologies: ["Unity", "Photon Engine", "C#", "Node.js", "PostgreSQL", "AWS"],
@@ -317,27 +312,19 @@ projectData = {
     title: "Crypto Blasters",
     description:
       "Take to the skies in Crypto Blasters, featuring revolutionary drone flying mechanics developed from the ground up by our talented team. Engage in fast-paced aerial combat with intuitive controls that make you feel like a true ace pilot. Customize your drone, master advanced maneuvers, and dominate the skies in this adrenaline-fueled experience.",
-    testimonial:
-      "The flying mechanics in Crypto Blasters are absolutely phenomenal! Seamless Outsource created something truly special - the controls are intuitive yet deep, and the aerial combat is unlike anything else on the market. Our players can't get enough of the drone customization and competitive dogfights.",
-    clientName: "Emma Rodriguez",
-    clientRole: "CEO, SkyNet Gaming",
-    clientImage: "https://randomuser.me/api/portraits/women/68.jpg",
     projectLink: "#",
     videoId: "ayJOgFpfXtE",
     technologies: ["Unreal Engine", "C++", "Blockchain Integration", "Multiplayer Networking", "Azure"],
     details: [
       {
-        image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Revolutionary Flight Physics",
         text: "Our custom-built flight system delivers an unparalleled sense of freedom and control. Experience realistic momentum, drift mechanics, and environmental effects as you navigate through stunning aerial battlegrounds. The physics engine responds to every input with precision, creating an authentic piloting experience that's easy to learn but challenging to master."
       },
       {
-        image: "https://images.unsplash.com/photo-1507499036636-f716246c2c23?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Deep Customization System",
         text: "Build your perfect drone with hundreds of parts, weapons, and upgrades. Mix and match components to create unique loadouts that match your combat style. From lightning-fast interceptors to heavily-armored gunships, every configuration offers distinct advantages. Unlock rare parts through gameplay and showcase your custom designs in the hangar."
       },
       {
-        image: "https://images.unsplash.com/photo-1614729939124-032f0b9c5e17?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Intense Multiplayer Battles",
         text: "Engage in thrilling multiplayer matches across diverse game modes. From team deathmatches to objective-based scenarios, every battle tests your piloting skills and tactical awareness. Advanced matchmaking ensures competitive balance while clan systems let you team up with friends for coordinated strikes. Rise through the ranks and earn exclusive rewards."
       }
@@ -348,27 +335,19 @@ projectData = {
     title: "Metaforza",
     description:
       "Metaforza delivers the ultimate racing experience with breathtaking graphics, heart-pounding speed, and realistic vehicle physics. Race through stunning environments, from neon-lit city streets to treacherous mountain passes. Customize your dream car and compete against rivals in this high-octane racing game that pushes the limits of visual fidelity and performance.",
-    testimonial:
-      "Seamless Outsource captured the essence of what makes racing games great. Metaforza's graphics are stunning, the physics feel authentic, and the sense of speed is incredible. Our racing community has embraced it wholeheartedly, and the competitive scene is thriving. Truly a masterpiece in racing game development.",
-    clientName: "Marcus Chen",
-    clientRole: "Creative Director, SpeedDemon Games",
-    clientImage: "https://randomuser.me/api/portraits/men/32.jpg",
     projectLink: "#",
     videoId: "AiqVLIg834g",
     technologies: ["Unreal Engine 5", "C++", "Photogrammetry", "Real-time Ray Tracing", "Steam SDK"],
     details: [
       {
-        image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Photorealistic Graphics",
         text: "Experience racing like never before with cutting-edge graphics powered by Unreal Engine 5. Real-time ray tracing creates stunning reflections and lighting, while photogrammetry-scanned environments deliver unprecedented realism. Dynamic weather and time-of-day systems transform each track, ensuring every race feels fresh and visually spectacular."
       },
       {
-        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Authentic Car Collection",
         text: "Drive meticulously recreated vehicles from the world's most prestigious manufacturers. Each car features authentic handling characteristics, engine sounds recorded from real vehicles, and detailed interiors. From classic muscle cars to modern supercars and futuristic prototypes, build your ultimate garage and feel the unique personality of every machine."
       },
       {
-        image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Career Mode & Online Championships",
         text: "Forge your legacy in an expansive career mode that takes you from amateur racer to racing legend. Compete in diverse championships, unlock sponsorships, and build your reputation. Take the competition online with ranked matches, seasonal leagues, and special events. Prove you're the fastest with global leaderboards and competitive tournaments."
       }
@@ -379,32 +358,98 @@ projectData = {
     title: "Rampage",
     description:
       "Rampage is an addictive rogue-like bullet heaven game that throws you into endless waves of chaos. Survive hordes of enemies, collect powerful upgrades, and create devastating build combinations. Each run is unique with procedurally generated levels and random power-ups. How long can you survive the rampage?",
-    testimonial:
-      "Seamless Outsource perfectly captured the addictive 'one more run' feeling that makes bullet heaven games so compelling. Rampage's upgrade system is genius - the synergies between powers create amazing moments. Our players are obsessed, with some logging hundreds of hours trying different builds and chasing high scores.",
-    clientName: "Jessica Park",
-    clientRole: "Indie Developer & Founder",
-    clientImage: "https://randomuser.me/api/portraits/women/44.jpg",
     projectLink: "#",
     videoId: "KBXnfm4q1NU",
     technologies: ["Unity", "C#", "Procedural Generation", "Particle Systems", "Steam API"],
     details: [
       {
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Endless Replayability",
         text: "No two runs are ever the same in Rampage. Procedurally generated levels keep you on your toes, while a vast array of weapons, abilities, and upgrades create countless build possibilities. Experiment with different combinations to discover powerful synergies. The rogue-like structure means every decision matters - will you risk it all for a legendary upgrade?"
       },
       {
-        image: "https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Screen-Filling Action",
         text: "Experience pure bullet heaven chaos as you mow down thousands of enemies in spectacular fashion. Advanced particle systems create mesmerizing visual effects when your maxed-out abilities unleash destruction. The game scales from tense early moments to absurd late-game power fantasies where you become an unstoppable force of nature."
       },
       {
-        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
         title: "Strategic Depth",
         text: "Behind the chaotic action lies deep strategic gameplay. Choose your character from a diverse roster, each with unique starting abilities and scaling potential. Plan your upgrade path, balance offense and defense, and adapt to the evolving threats. Meta progression unlocks new content and abilities, giving you more tools for future runs. Master the art of survival and top the global leaderboards."
       }
     ]
   },
+  zzEllp4Mf8c: {
+    category: "Branding",
+    title: "Zed Taxi",
+    description:
+      "Ultra-fast web mini-game loading in under 4 seconds, delivering an exceptional UAE taxi gaming experience. Built with cutting-edge web technologies to ensure instant playability and smooth performance across all devices.",
+    testimonial:
+      "We had an excellent experience working with you for the development of the 3D game. Your team is highly skilled, professional, and extremely easy to collaborate with. The team was patient with feedback and revisions, and consistently attentive to details throughout the process.",
+    clientName: "Sanjay Shukla",
+    clientRole: "CEO of ZED taxi",
+    clientImage: "public/images/testimonials/default_pp.webp",
+    projectLink: "#",
+    videoId: "zzEllp4Mf8c",
+    technologies: ["Three.js", "WebGL", "JavaScript", "HTML5", "CSS3", "Web Optimization"],
+    details: [
+      {
+        title: "Lightning-Fast Loading",
+        text: "Optimized for speed with a sub-4-second load time, our innovative approach ensures players can jump into the action immediately. Advanced web optimization techniques and efficient asset management create a seamless experience that rivals native applications, all within a browser."
+      },
+      {
+        title: "Authentic Taxi Experience",
+        text: "Immerse yourself in the vibrant streets of the UAE with realistic driving mechanics and detailed 3D environments. From bustling city streets to scenic routes, every detail has been crafted to deliver an engaging and authentic taxi driving experience."
+      },
+      {
+        title: "Cross-Platform Excellence",
+        text: "Play anywhere, anytime on any device. The game scales perfectly from desktop to mobile, maintaining smooth 60fps performance and responsive controls. No downloads required - just open your browser and start playing instantly."
+      }
+    ]
+  },
+  v03HpBk2Pk8: {
+    category: "Web Design",
+    title: "Hatchyverse",
+    description:
+      "First decentralized IP Web3 Dapp with token contracts, DEX, and P2P trading. A comprehensive blockchain platform enabling seamless interaction with digital assets in the Web3 ecosystem.",
+    projectLink: "#",
+    videoId: "v03HpBk2Pk8",
+    technologies: ["React", "Web3.js", "Solidity", "Smart Contracts", "Blockchain", "Ethereum"],
+    details: [
+      {
+        title: "Decentralized Infrastructure",
+        text: "Built on blockchain technology to ensure transparency, security, and true ownership of digital assets. The platform leverages smart contracts to automate processes and eliminate intermediaries, creating a trustless environment for users."
+      },
+      {
+        title: "Token Economy & DEX",
+        text: "Integrated decentralized exchange (DEX) functionality allows users to trade tokens directly from their wallets. The token economy is designed to incentivize participation and create value for the community."
+      },
+      {
+        title: "P2P Trading Platform",
+        text: "Peer-to-peer trading capabilities enable users to exchange digital assets directly with each other, fostering a vibrant marketplace for collectors and traders. Advanced filtering and search features make finding the perfect assets easy."
+      }
+    ]
+  },
+  JTyxrQS50v8: {
+    category: "Web Design",
+    title: "Anons",
+    description:
+      "NFT minting landing website on AVAX chain with seamless wallet integration. A sleek and modern platform designed for minting unique digital collectibles on the Avalanche blockchain.",
+    projectLink: "#",
+    videoId: "JTyxrQS50v8",
+    technologies: ["React", "Web3.js", "Avalanche", "NFT", "Smart Contracts", "IPFS"],
+    details: [
+      {
+        title: "Seamless Wallet Integration",
+        text: "One-click wallet connectivity supporting major crypto wallets. The integration provides a smooth user experience from connection to minting, ensuring accessibility for both newcomers and experienced collectors."
+      },
+      {
+        title: "AVAX Blockchain",
+        text: "Built on Avalanche for fast, low-cost transactions. The AVAX chain offers near-instant finality and minimal gas fees, making NFT minting accessible and affordable for everyone."
+      },
+      {
+        title: "Optimized Minting Experience",
+        text: "Streamlined minting process with real-time transaction feedback and status updates. Users can easily mint their NFTs with confidence, backed by secure smart contract technology and IPFS storage for permanent asset preservation."
+      }
+    ]
+  }
 };
 
 // Video Modal Functionality
