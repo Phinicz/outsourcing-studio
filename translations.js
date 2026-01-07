@@ -63,6 +63,18 @@ const translations = {
         rampage: {
           title: "Rampage",
           description: "Addictive rogue-like bullet heaven game with endless waves of chaos and upgrades"
+        },
+        hatchyverse: {
+          title: "Hatchyverse",
+          description: "First decentralized IP Web3 Dapp with token contracts, DEX, and P2P trading"
+        },
+        anons: {
+          title: "Anons",
+          description: "NFT minting landing website on AVAX chain with seamless wallet integration"
+        },
+        zedTaxi: {
+          title: "Zed Taxi",
+          description: "Ultra-fast web mini-game loading in under 4 seconds for UAE taxi experience"
         }
       }
     },
@@ -113,6 +125,16 @@ const translations = {
           name: "Mark Bruce",
           role: "Game Developer",
           bio: "Unity game developer with fantastic output"
+        },
+        {
+          name: "Mohsin",
+          role: "Unity Game Developer",
+          bio: "Very reliable developer delivering high quality work consistently"
+        },
+        {
+          name: "Alan",
+          role: "Full Stack Web3 Developer",
+          bio: "Full stack web developer with proficiency in Web3 development"
         }
       ]
     },
@@ -143,6 +165,12 @@ const translations = {
       aboutProject: "About This Project",
       technologiesUsed: "Technologies Used",
       viewLiveProject: "View Live Project"
+    },
+    // Platform tooltips
+    platform: {
+      android: "Android",
+      ios: "iOS",
+      web: "Web"
     }
   },
   ar: {
@@ -208,6 +236,18 @@ const translations = {
         rampage: {
           title: "رامبيج",
           description: "لعبة روغلايك الإدمانية مع موجات لا نهائية من الفوضى والترقيات"
+        },
+        hatchyverse: {
+          title: "هاتشيفيرس",
+          description: "أول تطبيق ويب3 لامركزي مع عقود الرموز، DEX، والتداول P2P"
+        },
+        anons: {
+          title: "أنونز",
+          description: "موقع هبوط لصك NFT على سلسلة AVAX مع تكامل محفظة سلس"
+        },
+        zedTaxi: {
+          title: "زيد تاكسي",
+          description: "لعبة ويب صغيرة فائقة السرعة تُحمّل في أقل من 4 ثوانٍ لتجربة تاكسي الإمارات"
         }
       }
     },
@@ -242,8 +282,7 @@ const translations = {
         {
           name: "محمد فخري",
           role: "مطور ويب",
-          // please translate from the english part
-          bio: "محمد مطور ويب وخبير في threejs"
+          bio: "محمد مطور ويب وخبير في threejs وReact والرسوم المتحركة الرائعة"
         },
         {
           name: "سليمان",
@@ -259,6 +298,16 @@ const translations = {
           name: "مارك",
           role: "مطور العاب",
           bio: "مارك له جوده عاليه جدا في تصدير اي جزء من اللعبة"
+        },
+        {
+          name: "محسن",
+          role: "مطور العاب يونيتي",
+          bio: "مطور موثوق للغاية يقدم عمل عالي الجودة باستمرار"
+        },
+        {
+          name: "آلان",
+          role: "مطور ويب3 متكامل",
+          bio: "مطور ويب متكامل ذو كفاءة في تطوير Web3"
         }
       ]
     },
@@ -289,6 +338,12 @@ const translations = {
       aboutProject: "حول هذا المشروع",
       technologiesUsed: "التقنيات المستخدمة",
       viewLiveProject: "عرض المشروع المباشر"
+    },
+    // Platform tooltips
+    platform: {
+      android: "أندرويد",
+      ios: "آي أو إس",
+      web: "ويب"
     }
   }
 };

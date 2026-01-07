@@ -1,9 +1,37 @@
 // Language Management
-let currentLang = localStorage.getItem('language') || 'en';
+// List of Arabic-speaking countries
+const ARABIC_COUNTRIES = [
+  'Egypt',
+  'Saudi Arabia',
+  'United Arab Emirates',
+  'Kuwait',
+  'Qatar',
+  'Bahrain',
+  'Oman',
+  'Jordan',
+  'Lebanon',
+  'Iraq',
+  'Syria',
+  'Yemen',
+  'Palestine',
+  'Libya',
+  'Tunisia',
+  'Algeria',
+  'Morocco',
+  'Sudan',
+  'Mauritania',
+  'Djibouti',
+  'Comoros',
+  'Somalia'
+];
 
-// Set initial language on HTML element (can be done immediately)
-document.documentElement.lang = currentLang;
-document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+let currentLang = localStorage.getItem('language') || null; // Will be set based on geolocation if null
+
+// Set initial language on HTML element (will be updated after detection)
+if (currentLang) {
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+}
 
 // Helper function to get nested translation
 function getNestedTranslation(obj, path) {
@@ -60,6 +88,20 @@ function applyTranslations() {
   });
   console.log('Translated', placeholderCount, 'placeholder elements');
 
+  // Update all title attributes with data-translate-title attribute
+  let titleCount = 0;
+  document.querySelectorAll('[data-translate-title]').forEach(element => {
+    const key = element.getAttribute('data-translate-title');
+    const translation = getNestedTranslation(translations[lang], key);
+    if (translation) {
+      element.title = translation;
+      titleCount++;
+    } else {
+      console.warn('Translation not found for title key:', key);
+    }
+  });
+  console.log('Translated', titleCount, 'title attributes');
+
   // Update language toggle buttons text (both desktop and mobile)
   const langToggle = document.getElementById('langToggle');
   const langToggleMobile = document.getElementById('langToggleMobile');
@@ -92,6 +134,47 @@ function applyTranslations() {
   }
 
   console.log('Translation complete!');
+}
+
+// Detect language from visitor's country
+function detectLanguageFromLocation(country) {
+  if (!country || country === 'Unknown') {
+    return 'en'; // Default to English if country is unknown
+  }
+
+  // Check if the country is in the Arabic-speaking countries list
+  const isArabicCountry = ARABIC_COUNTRIES.some(
+    arabicCountry => country.toLowerCase().includes(arabicCountry.toLowerCase()) ||
+      arabicCountry.toLowerCase().includes(country.toLowerCase())
+  );
+
+  return isArabicCountry ? 'ar' : 'en';
+}
+
+// Detect and set language based on geolocation (for first-time visitors)
+async function detectAndSetLanguage() {
+  try {
+    console.log('Detecting language from geolocation...');
+    const location = await getVisitorLocation();
+    const detectedLang = detectLanguageFromLocation(location.country);
+
+    console.log(`Detected country: ${location.country}, setting language to: ${detectedLang}`);
+
+    currentLang = detectedLang;
+    localStorage.setItem('language', currentLang);
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+    return detectedLang;
+  } catch (error) {
+    console.error('Error detecting language from geolocation:', error);
+    // Default to English on error
+    currentLang = 'en';
+    localStorage.setItem('language', currentLang);
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = 'ltr';
+    return 'en';
+  }
 }
 
 // Toggle language
@@ -716,9 +799,19 @@ const initTestimonialSlider = () => {
 };
 
 // Initialize everything when DOM is ready
-function initAll() {
+async function initAll() {
   console.log('=== Initializing website ===');
   console.log('Document ready state:', document.readyState);
+
+  // Check if this is a first-time visitor (no language preference stored)
+  const hasLanguagePreference = localStorage.getItem('language') !== null;
+
+  if (!hasLanguagePreference) {
+    console.log('First-time visitor detected, auto-detecting language from geolocation...');
+    await detectAndSetLanguage();
+  } else {
+    console.log('Returning visitor, using stored language preference:', currentLang);
+  }
 
   // Initialize translations
   console.log('1. Initializing translations...');
@@ -956,10 +1049,12 @@ if (contactForm) {
       }
 
       // Show success message
-      alert("Thank you for your message! We'll get back to you soon.");
+      const successMsg = getNestedTranslation(translations[currentLang], 'contact.success') || "Thank you for your message! We'll get back to you soon.";
+      alert(successMsg);
       contactForm.reset();
     } else {
-      alert("Please fill in all fields.");
+      const errorMsg = getNestedTranslation(translations[currentLang], 'contact.error') || "Please fill in all fields.";
+      alert(errorMsg);
     }
   });
 }
