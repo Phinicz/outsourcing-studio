@@ -1250,13 +1250,14 @@ document.head.appendChild(style);
 
 // Hero Testimonials Rotation
 const initHeroTestimonials = () => {
-  const card = document.querySelector('.hero-testimonial-card');
-  const textEl = document.querySelector('.hero-testimonial-text');
-  const nameEl = document.querySelector('.hero-testimonial-name');
-  const roleEl = document.querySelector('.hero-testimonial-role');
-  const imgEl = document.querySelector('.hero-testimonial-img');
+  // Select all hero testimonial cards (both mobile and desktop)
+  const cards = document.querySelectorAll('.hero-testimonial-card');
+  const textEls = document.querySelectorAll('.hero-testimonial-text');
+  const nameEls = document.querySelectorAll('.hero-testimonial-name');
+  const roleEls = document.querySelectorAll('.hero-testimonial-role');
+  const imgEls = document.querySelectorAll('.hero-testimonial-img');
 
-  if (!card || !textEl || !nameEl || !roleEl) return;
+  if (cards.length === 0 || textEls.length === 0 || nameEls.length === 0 || roleEls.length === 0) return;
 
   let currentIndex = 0;
 
@@ -1268,36 +1269,50 @@ const initHeroTestimonials = () => {
   };
 
   const updateTestimonial = () => {
-    // Fade out
-    card.classList.add('testimonial-fade-out');
-    card.classList.remove('testimonial-fade-in');
+    // Fade out all cards
+    cards.forEach(card => {
+      card.classList.add('testimonial-fade-out');
+      card.classList.remove('testimonial-fade-in');
+    });
 
     setTimeout(() => {
-      // Update content
+      // Update content - move to next testimonial
       currentIndex = (currentIndex + 1) % getTestimonialCount();
 
-      // Update data-translate attributes
-      textEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.text`);
-      nameEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.name`);
-      roleEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.role`);
+      // Update all text elements (both mobile and desktop)
+      textEls.forEach(textEl => {
+        textEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.text`);
+      });
+
+      nameEls.forEach(nameEl => {
+        nameEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.name`);
+      });
+
+      roleEls.forEach(roleEl => {
+        roleEl.setAttribute('data-translate', `heroTestimonials.items.${currentIndex}.role`);
+      });
 
       // Use placeholder as requested
-      if (imgEl) {
-        imgEl.src = "/public/images/testimonials/default_pp.webp";
-      }
+      imgEls.forEach(imgEl => {
+        if (imgEl) {
+          imgEl.src = "public/images/testimonials/default_pp.webp";
+        }
+      });
 
       // Re-apply translations for the new keys
       applyTranslations();
 
       // Small delay before fading back in for a smoother transition
       setTimeout(() => {
-        card.classList.remove('testimonial-fade-out');
-        card.classList.add('testimonial-fade-in');
+        cards.forEach(card => {
+          card.classList.remove('testimonial-fade-out');
+          card.classList.add('testimonial-fade-in');
+        });
       }, 50);
     }, 600); // Wait for fade out (matching CSS transition)
   };
 
-  // Start rotation
-  setInterval(updateTestimonial, 15000); // Rotate every 15 seconds
+  // Start rotation - rotate every 25 seconds
+  setInterval(updateTestimonial, 25000);
 };
 
