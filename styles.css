@@ -400,6 +400,7 @@ html[dir="rtl"] .form-group textarea {
   line-height: 1.1;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
+
 }
 
 .title-line {
@@ -2675,7 +2676,7 @@ section {
   }
 
   .hero-testimonial-card {
-    padding: 1rem;
+    padding: 1.25rem;
     max-width: 500px;
     margin: 0 auto;
   }
@@ -2685,8 +2686,8 @@ section {
     line-height: 1.5;
     margin-bottom: 0.8rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 6;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
